@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24C44B028D2E46B1F65642A7 /* libPods-ErosPluginSocialShareUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FCE8FA2C2E890930F481FCC /* libPods-ErosPluginSocialShareUITests.a */; };
-		322100355073450186FAB777 /* libPods-ErosPluginSocialShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5618D3604ECE1B87A3BD9873 /* libPods-ErosPluginSocialShare.a */; };
-		50975207166BDD0F248BA299 /* libPods-ErosPluginSocialShareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFC523D64126F492F1EA5EC /* libPods-ErosPluginSocialShareTests.a */; };
 		A3689FFB22A12E0100482A29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3689FFA22A12E0100482A29 /* AppDelegate.m */; };
 		A3689FFE22A12E0100482A29 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3689FFD22A12E0100482A29 /* ViewController.m */; };
 		A368A00122A12E0100482A29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3689FFF22A12E0100482A29 /* Main.storyboard */; };
@@ -38,11 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		314EC6ACD4AB28A415AA9545 /* Pods-ErosPluginSocialShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErosPluginSocialShareTests.release.xcconfig"; path = "Target Support Files/Pods-ErosPluginSocialShareTests/Pods-ErosPluginSocialShareTests.release.xcconfig"; sourceTree = "<group>"; };
-		5618D3604ECE1B87A3BD9873 /* libPods-ErosPluginSocialShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErosPluginSocialShare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ABD3D412BE48801855C900A /* Pods-ErosPluginSocialShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErosPluginSocialShareUITests.release.xcconfig"; path = "Target Support Files/Pods-ErosPluginSocialShareUITests/Pods-ErosPluginSocialShareUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5EFC523D64126F492F1EA5EC /* libPods-ErosPluginSocialShareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErosPluginSocialShareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FCE8FA2C2E890930F481FCC /* libPods-ErosPluginSocialShareUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErosPluginSocialShareUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3689FF622A12E0100482A29 /* ErosPluginSocialShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ErosPluginSocialShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3689FF922A12E0100482A29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A3689FFA22A12E0100482A29 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,10 +51,6 @@
 		A368A01922A12E0300482A29 /* ErosPluginSocialShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ErosPluginSocialShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A368A01D22A12E0300482A29 /* ErosPluginSocialShareUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErosPluginSocialShareUITests.m; sourceTree = "<group>"; };
 		A368A01F22A12E0300482A29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D16F0402AFB5A77416B5B3AB /* Pods-ErosPluginSocialShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErosPluginSocialShare.debug.xcconfig"; path = "Target Support Files/Pods-ErosPluginSocialShare/Pods-ErosPluginSocialShare.debug.xcconfig"; sourceTree = "<group>"; };
-		DAC6A19B9B57621F9EEC907B /* Pods-ErosPluginSocialShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErosPluginSocialShareTests.debug.xcconfig"; path = "Target Support Files/Pods-ErosPluginSocialShareTests/Pods-ErosPluginSocialShareTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E06C2D6B1310003E4758FE5C /* Pods-ErosPluginSocialShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErosPluginSocialShare.release.xcconfig"; path = "Target Support Files/Pods-ErosPluginSocialShare/Pods-ErosPluginSocialShare.release.xcconfig"; sourceTree = "<group>"; };
-		FACD0C03779B6B01C7A76F35 /* Pods-ErosPluginSocialShareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErosPluginSocialShareUITests.debug.xcconfig"; path = "Target Support Files/Pods-ErosPluginSocialShareUITests/Pods-ErosPluginSocialShareUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322100355073450186FAB777 /* libPods-ErosPluginSocialShare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50975207166BDD0F248BA299 /* libPods-ErosPluginSocialShareTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,37 +72,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C44B028D2E46B1F65642A7 /* libPods-ErosPluginSocialShareUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9DF91EBB084C9EA49671EFE3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5618D3604ECE1B87A3BD9873 /* libPods-ErosPluginSocialShare.a */,
-				5EFC523D64126F492F1EA5EC /* libPods-ErosPluginSocialShareTests.a */,
-				6FCE8FA2C2E890930F481FCC /* libPods-ErosPluginSocialShareUITests.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A216C53AE8D33C124FCB1B94 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D16F0402AFB5A77416B5B3AB /* Pods-ErosPluginSocialShare.debug.xcconfig */,
-				E06C2D6B1310003E4758FE5C /* Pods-ErosPluginSocialShare.release.xcconfig */,
-				DAC6A19B9B57621F9EEC907B /* Pods-ErosPluginSocialShareTests.debug.xcconfig */,
-				314EC6ACD4AB28A415AA9545 /* Pods-ErosPluginSocialShareTests.release.xcconfig */,
-				FACD0C03779B6B01C7A76F35 /* Pods-ErosPluginSocialShareUITests.debug.xcconfig */,
-				5ABD3D412BE48801855C900A /* Pods-ErosPluginSocialShareUITests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		A3689FED22A12E0100482A29 = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +85,6 @@
 				A368A01122A12E0300482A29 /* ErosPluginSocialShareTests */,
 				A368A01C22A12E0300482A29 /* ErosPluginSocialShareUITests */,
 				A3689FF722A12E0100482A29 /* Products */,
-				A216C53AE8D33C124FCB1B94 /* Pods */,
-				9DF91EBB084C9EA49671EFE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,7 +101,6 @@
 		A3689FF822A12E0100482A29 /* ErosPluginSocialShare */ = {
 			isa = PBXGroup;
 			children = (
-				A368A02B22A131C400482A29 /* Source */,
 				A3689FF922A12E0100482A29 /* AppDelegate.h */,
 				A3689FFA22A12E0100482A29 /* AppDelegate.m */,
 				A3689FFC22A12E0100482A29 /* ViewController.h */,
@@ -174,13 +132,6 @@
 			path = ErosPluginSocialShareUITests;
 			sourceTree = "<group>";
 		};
-		A368A02B22A131C400482A29 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,11 +139,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A368A02222A12E0300482A29 /* Build configuration list for PBXNativeTarget "ErosPluginSocialShare" */;
 			buildPhases = (
-				DEB0A37E299B10DA166AAEA3 /* [CP] Check Pods Manifest.lock */,
 				A3689FF222A12E0100482A29 /* Sources */,
 				A3689FF322A12E0100482A29 /* Frameworks */,
 				A3689FF422A12E0100482A29 /* Resources */,
-				BA02B281CB7603523D38E9F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,7 +156,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A368A02522A12E0300482A29 /* Build configuration list for PBXNativeTarget "ErosPluginSocialShareTests" */;
 			buildPhases = (
-				63E5B8CB1232F0788C0F03AD /* [CP] Check Pods Manifest.lock */,
 				A368A00A22A12E0300482A29 /* Sources */,
 				A368A00B22A12E0300482A29 /* Frameworks */,
 				A368A00C22A12E0300482A29 /* Resources */,
@@ -226,7 +174,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A368A02822A12E0300482A29 /* Build configuration list for PBXNativeTarget "ErosPluginSocialShareUITests" */;
 			buildPhases = (
-				5E2ABBFAADBE16B2A26BF47C /* [CP] Check Pods Manifest.lock */,
 				A368A01522A12E0300482A29 /* Sources */,
 				A368A01622A12E0300482A29 /* Frameworks */,
 				A368A01722A12E0300482A29 /* Resources */,
@@ -309,127 +256,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5E2ABBFAADBE16B2A26BF47C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ErosPluginSocialShareUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		63E5B8CB1232F0788C0F03AD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ErosPluginSocialShareTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA02B281CB7603523D38E9F6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ErosPluginSocialShare/Pods-ErosPluginSocialShare-resources.sh",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMComponent/Calendar/Resources/CalendarLeftArrows@2x.png",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMComponent/Calendar/Resources/CalendarLeftArrows@3x.png",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMComponent/Calendar/Resources/CalendarReightArrows@2x.png",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMComponent/Calendar/Resources/CalendarReightArrows@3x.png",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMComponent/Chart/Resources/bm-chart.html",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMComponent/Chart/Resources/echarts.min.js",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMModule/Modal/SVProgressHUD/SVProgressHUD.bundle",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMWeexExtension/Resources/arrowInKeyboard@2x.png",
-				"${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMWeexExtension/Resources/bm-base.js",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
-				"${PODS_ROOT}/WeexSDK/pre-build/native-bundle-main.js",
-				"${PODS_ROOT}/WeexSDK/pre-build/weex-main-jsfm.js",
-				"${PODS_ROOT}/WeexSDK/pre-build/weex-polyfill.js",
-				"${PODS_ROOT}/WeexSDK/pre-build/weex-rax-api.js",
-				"${PODS_ROOT}/WeexSDK/ios/sdk/WeexSDK/Resources/wx_load_error@3x.png",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CalendarLeftArrows@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CalendarLeftArrows@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CalendarReightArrows@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CalendarReightArrows@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bm-chart.html",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/echarts.min.js",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/arrowInKeyboard@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bm-base.js",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/native-bundle-main.js",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weex-main-jsfm.js",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weex-polyfill.js",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weex-rax-api.js",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/wx_load_error@3x.png",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ErosPluginSocialShare/Pods-ErosPluginSocialShare-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DEB0A37E299B10DA166AAEA3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ErosPluginSocialShare-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A3689FF222A12E0100482A29 /* Sources */ = {
@@ -607,18 +433,16 @@
 		};
 		A368A02322A12E0300482A29 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D16F0402AFB5A77416B5B3AB /* Pods-ErosPluginSocialShare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4VUUG96H26;
 				INFOPLIST_FILE = ErosPluginSocialShare/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = luke.ErosPluginSocialShare.com;
+				PRODUCT_BUNDLE_IDENTIFIER = luke.ErosPluginSocialShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -626,18 +450,16 @@
 		};
 		A368A02422A12E0300482A29 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E06C2D6B1310003E4758FE5C /* Pods-ErosPluginSocialShare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4VUUG96H26;
 				INFOPLIST_FILE = ErosPluginSocialShare/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = luke.ErosPluginSocialShare.com;
+				PRODUCT_BUNDLE_IDENTIFIER = luke.ErosPluginSocialShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -645,7 +467,6 @@
 		};
 		A368A02622A12E0300482A29 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAC6A19B9B57621F9EEC907B /* Pods-ErosPluginSocialShareTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -665,7 +486,6 @@
 		};
 		A368A02722A12E0300482A29 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 314EC6ACD4AB28A415AA9545 /* Pods-ErosPluginSocialShareTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -685,7 +505,6 @@
 		};
 		A368A02922A12E0300482A29 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FACD0C03779B6B01C7A76F35 /* Pods-ErosPluginSocialShareUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4VUUG96H26;
@@ -704,7 +523,6 @@
 		};
 		A368A02A22A12E0300482A29 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5ABD3D412BE48801855C900A /* Pods-ErosPluginSocialShareUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4VUUG96H26;
