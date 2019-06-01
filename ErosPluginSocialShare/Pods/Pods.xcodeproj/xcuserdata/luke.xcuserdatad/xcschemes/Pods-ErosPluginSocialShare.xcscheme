@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EF646E769929C8589A3F631BC031F3DB"
+               BlueprintIdentifier = "3EBBDC177DC8F5D8EA996A017479A706"
                BuildableName = "libPods-ErosPluginSocialShare.a"
                BlueprintName = "Pods-ErosPluginSocialShare"
                ReferencedContainer = "container:Pods.xcodeproj">

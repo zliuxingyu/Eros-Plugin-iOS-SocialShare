@@ -213,6 +213,9 @@ PODS:
   - WeexPluginLoader (0.0.1.9.1):
     - WeexSDK
   - WeexSDK (0.20.1)
+  - WXDevtool (0.20.1):
+    - SocketRocket
+    - WeexSDK
   - YTKNetwork (2.0.3):
     - AFNetworking (~> 3.0)
   - YYModel (1.0.4)
@@ -225,6 +228,7 @@ DEPENDENCIES:
   - UMCShare/Social/GooglePlus
   - UMCShare/Social/ReducedWeChat
   - WeexSDK (from `https://github.com/bmfe/incubator-weex.git`)
+  - WXDevtool (from `https://github.com/bmfe/weex-devtool-iOS.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -252,6 +256,8 @@ EXTERNAL SOURCES:
     :tag: 1.3.5
   WeexSDK:
     :git: https://github.com/bmfe/incubator-weex.git
+  WXDevtool:
+    :git: https://github.com/bmfe/weex-devtool-iOS.git
 
 CHECKOUT OPTIONS:
   ErosPluginBaseLibrary:
@@ -260,6 +266,9 @@ CHECKOUT OPTIONS:
   WeexSDK:
     :commit: fe7149518307a6c2bf30bb3452ebf86a1dd67be5
     :git: https://github.com/bmfe/incubator-weex.git
+  WXDevtool:
+    :commit: 7c18ebf64372826f04b5afbe6d8559fe2cbaf28a
+    :git: https://github.com/bmfe/weex-devtool-iOS.git
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -278,10 +287,11 @@ SPEC CHECKSUMS:
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   WeexPluginLoader: 85c1304f8ba29864e58531614a0acfeceef1b85c
   WeexSDK: fa2027698f19dbccf74ed35ae2771598da138f2d
+  WXDevtool: ae5197d92941fd5eeeccf607dc31ceb2c556605d
   YTKNetwork: c4b0c29c9d639dc050d475de69ee626d53eac598
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 67a04322e3a2cda14506453e914b704e2facac11
+PODFILE CHECKSUM: 9b0882f11059a996fdbbaa16655b0cc5c313f9b2
 
 COCOAPODS: 1.6.1

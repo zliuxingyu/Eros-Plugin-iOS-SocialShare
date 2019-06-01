@@ -481,6 +481,11 @@ Copyright 2011 - 2019 umeng.com. All rights reserved.
 Copyright 2011 - 2018 umeng.com. All rights reserved.
 
 
+## WXDevtool
+
+Alibaba-INC copyright
+
+
 ## WeexPluginLoader
 
 Alibaba-INC copyright
