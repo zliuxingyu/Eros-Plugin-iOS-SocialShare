@@ -22,11 +22,9 @@ WX_PlUGIN_EXPORT_MODULE(SJSocialShare, SJUmengModule)
 @interface SJUmengModule ()<GIDSignInDelegate, GIDSignInUIDelegate>
 
 @property (copy, nonatomic) WXModuleCallback successCallback;                           // Google登录/登出成功信息回调
-
 @property (copy, nonatomic) WXModuleCallback failedCallback;                            // Google登录/登出失败信息回调
 
 @end
-
 
 @implementation SJUmengModule
 
@@ -40,25 +38,8 @@ WX_EXPORT_METHOD(@selector(loginWithPlatformType:successCallback:failedCallback:
 WX_EXPORT_METHOD(@selector(logoutWithPlatformType:successCallback:failedCallback:))     // 取消授权【登出】方法
 WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))              // 分享方法
 
-+ (instancetype)shareInstance {
-    static SJUmengModule *singleton = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        singleton = [[SJUmengModule alloc] init];
-    });
-    
-    return singleton;
-}
-
-- (id)init {
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
 
 #pragma mark init
-
 /**
  *  初始化友盟方法
  *  @param appkey 友盟平台申请的appkey
@@ -549,6 +530,5 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     }
     return result;
 }
-
 
 @end

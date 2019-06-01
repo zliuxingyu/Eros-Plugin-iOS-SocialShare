@@ -13,9 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SJUmengModule : NSObject<WXModuleProtocol>
 
-/** 单例对象*/
-+ (instancetype)shareInstance;
-
 @end
 
 NS_ASSUME_NONNULL_END
