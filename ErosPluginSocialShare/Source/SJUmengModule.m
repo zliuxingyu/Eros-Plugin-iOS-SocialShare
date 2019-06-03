@@ -7,6 +7,7 @@
 //
 
 #import "SJUmengModule.h"
+#import <WeexSDK/WeexSDK.h>
 #import <WeexPluginLoader/WeexPluginLoader.h>
 #import <UMCommon/UMCommon.h>
 #import <UMShare/UMShare.h>
@@ -19,7 +20,7 @@
 
 WX_PlUGIN_EXPORT_MODULE(SJSocialShare, SJUmengModule)
 
-@interface SJUmengModule ()<GIDSignInDelegate, GIDSignInUIDelegate>
+@interface SJUmengModule ()<WXModuleProtocol, GIDSignInDelegate, GIDSignInUIDelegate>
 
 @property (copy, nonatomic) WXModuleCallback successCallback;                           // Google登录/登出成功信息回调
 @property (copy, nonatomic) WXModuleCallback failedCallback;                            // Google登录/登出失败信息回调

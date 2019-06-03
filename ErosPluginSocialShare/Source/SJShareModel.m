@@ -7,6 +7,7 @@
 //
 
 #import "SJShareModel.h"
+#import "YYModel.h"
 
 @implementation SJShareModel
 
