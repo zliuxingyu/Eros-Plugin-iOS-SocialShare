@@ -19,7 +19,7 @@
 
 WX_PlUGIN_EXPORT_MODULE(SJSocialShare, SJUmengModule)
 
-@interface SJUmengModule ()<WXModuleProtocol, GIDSignInDelegate, GIDSignInUIDelegate>
+@interface SJUmengModule ()<GIDSignInDelegate, GIDSignInUIDelegate>
 
 @property (copy, nonatomic) WXModuleCallback successCallback;                           // Google登录/登出成功信息回调
 @property (copy, nonatomic) WXModuleCallback failedCallback;                            // Google登录/登出失败信息回调

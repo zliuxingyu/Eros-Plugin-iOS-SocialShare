@@ -142,13 +142,8 @@ function(resData){
 ```
 
 ## Change Log
-**iOS 1.0.9** <br>
+**iOS 1.1.0** <br>
 [最新版]
-1. 头文件调整.
+1.调试.
 
-**iOS 1.0.8** <br>
-1. WeexSDK库更新.
-
-**iOS 1.0.7** <br>
-1. 依赖库调整.
 

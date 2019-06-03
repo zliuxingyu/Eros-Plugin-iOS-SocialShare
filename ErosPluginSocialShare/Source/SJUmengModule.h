@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <WeexSDK/WeexSDK.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SJUmengModule : NSObject
-#import <WeexSDK/WeexSDK.h>
+@interface SJUmengModule : NSObject<WXModuleProtocol>
 
 @end
 
