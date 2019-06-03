@@ -7,7 +7,6 @@
 //
 
 #import "SJUmengModule.h"
-#import <WeexSDK/WeexSDK.h>
 #import <WeexPluginLoader/WeexPluginLoader.h>
 #import <UMCommon/UMCommon.h>
 #import <UMShare/UMShare.h>

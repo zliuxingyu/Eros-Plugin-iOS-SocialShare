@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SJUmengModule : NSObject
+#import <WeexSDK/WeexSDK.h>
 
 @end
 
