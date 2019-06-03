@@ -13,7 +13,7 @@
 
 ## 集成方式
 
-1. 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，添加`ErosPluginSocialShare`组件的引用，添加代码如下，**注意**版本号改为最新的版本
+1. 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，添加`ErosPluginSocialShare`组件的引用，添加代码如下，**注意**版本号改为最新的版本【查看下面Change Log】
 
 ```ruby
 def common
@@ -141,3 +141,11 @@ function(resData){
 })
 ```
 
+## Change Log
+
+**iOS 1.0.2** <br>
+[最新版]
+1. 调整文件路径；
+
+**iOS 1.0.1** <br>
+1. 设置路径；
