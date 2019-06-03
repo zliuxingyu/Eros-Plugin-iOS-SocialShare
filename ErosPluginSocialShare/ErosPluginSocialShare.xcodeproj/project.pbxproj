@@ -155,6 +155,7 @@
 		A3689FED22A12E0100482A29 = {
 			isa = PBXGroup;
 			children = (
+				A368A02B22A131C400482A29 /* Source */,
 				A3689FF822A12E0100482A29 /* ErosPluginSocialShare */,
 				A368A01122A12E0300482A29 /* ErosPluginSocialShareTests */,
 				A368A01C22A12E0300482A29 /* ErosPluginSocialShareUITests */,
@@ -178,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				A337B28E22A1FB830006E29B /* google+ */,
-				A368A02B22A131C400482A29 /* Source */,
 				A3689FF922A12E0100482A29 /* AppDelegate.h */,
 				A3689FFA22A12E0100482A29 /* AppDelegate.m */,
 				A3689FFC22A12E0100482A29 /* ViewController.h */,

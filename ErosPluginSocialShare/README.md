@@ -143,6 +143,6 @@ function(resData){
 
 ## Change Log
 
-**iOS 1.0.4** <br>
+**iOS 1.0.5** <br>
 [最新版]
-1. 调整文件路径.
+1. 调整项目文件路径.

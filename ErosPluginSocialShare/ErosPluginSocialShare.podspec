@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "ErosPluginSocialShare"
-  spec.version      = "1.0.4"
+  spec.version      = "1.0.5"
   spec.summary      = "ErosPluginSocialShare Source ."
 
 
@@ -50,7 +50,7 @@ Pod::Spec.new do |spec|
   spec.source          = { :git => "https://github.com/zliuxingyu/Eros-Plugin-iOS-SocialShare.git", :tag => spec.version.to_s }
 
 
-  spec.source_files    = "ErosPluginSocialShare/ErosPluginSocialShare/Source/*.{h,m,mm}"
+  spec.source_files    = "Source/*.{h,m,mm}"
 
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
