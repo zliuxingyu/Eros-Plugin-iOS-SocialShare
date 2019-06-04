@@ -142,8 +142,8 @@ function(resData){
 ```
 
 ## Change Log
-**iOS 1.1.0** <br>
+**iOS 1.1.1** <br>
 [最新版]
-1.调试.
+1.增加MIT文件。
 
 

@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "ErosPluginSocialShare"
-  spec.version      = "1.1.0"
+  spec.version      = "1.1.1"
   spec.summary      = "ErosPluginSocialShare Source ."
 
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |spec|
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
-  spec.license        = "Copyright (c) 2019年 Luke. All rights reserved."
+  spec.license        = "MIT"
 
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
@@ -78,6 +78,7 @@ Pod::Spec.new do |spec|
   spec.dependency 'UMCShare/Social/ReducedWeChat', '6.9.5'
   spec.dependency 'UMCShare/Social/Facebook', '6.9.5' 	
   spec.dependency 'YYModel'	
+  spec.dependency 'ErosPluginBaseLibrary', '1.3.5' 	
   # spec.dependency 'WeexSDK', '0.20.1' 
 
 end
