@@ -142,7 +142,7 @@ function(resData){
 ```
 
 ## Change Log
-**iOS 1.1.2** <br>
+**iOS 1.1.3** <br>
 [最新版]
 1.调整库引用。
 
