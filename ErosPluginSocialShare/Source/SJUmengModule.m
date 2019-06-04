@@ -11,11 +11,11 @@
 #import <UMCommon/UMCommon.h>
 #import <UMShare/UMShare.h>
 #import <GoogleSignIn/GoogleSignIn.h>                                                   // google 登录
-#import "NSDictionary+Util.h"
 #import "YYModel.h"
-#import "BMMediatorManager.h"
 #import "SJShareModel.h"
 
+//#import "NSDictionary+Util.h"
+//#import "BMMediatorManager.h"
 
 WX_PlUGIN_EXPORT_MODULE(SJSocialShare, SJUmengModule)
 
@@ -146,7 +146,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
                 WXLogError(@"%@",error);
                 NSString   *errorMsg = [self getMesageWithError:error type:@"login"];
                 NSString       *show = [NSString stringWithFormat:@"%@ %@", platformName, errorMsg];
-                NSDictionary *resDic = [NSDictionary configCallbackDataWithResCode:BMResCodeError msg:show data:nil];
+                NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeError msg:show data:nil];
                 if (failedCallback) {
                     failedCallback(resDic);
                 }
@@ -156,7 +156,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
                 if (successCallback) {
                     NSString *show = [NSString stringWithFormat:@"%@ login success", platformName];
                     NSMutableDictionary *userInfo = [resp yy_modelToJSONObject];
-                    NSDictionary *resDic = [NSDictionary configCallbackDataWithResCode:BMResCodeSuccess msg:show data:userInfo];
+                    NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeSuccess msg:show data:userInfo];
                     successCallback(resDic);
                 }
             }
@@ -193,7 +193,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
                 WXLogError(@"%@",error);
                 NSString   *errorMsg = [self getMesageWithError:error type:@"logout"];
                 NSString       *show = [NSString stringWithFormat:@"%@ %@", platformName, errorMsg];
-                NSDictionary *resDic = [NSDictionary configCallbackDataWithResCode:BMResCodeError msg:show data:nil];
+                NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeError msg:show data:nil];
                 if (failedCallback) {
                     failedCallback(resDic);
                 }
@@ -204,7 +204,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
                 if (successCallback) {
                     NSString *show = [NSString stringWithFormat:@"%@ logout success", platformName];
                     NSMutableDictionary *userInfo = [resp yy_modelToJSONObject];
-                    NSDictionary *resDic = [NSDictionary configCallbackDataWithResCode:BMResCodeSuccess msg:show data:userInfo];
+                    NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeSuccess msg:show data:userInfo];
                     successCallback(resDic);
                 }
             }
@@ -328,7 +328,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     // 设置分享内容
     [[UMSocialManager defaultManager] shareToPlatform:platformType
                                         messageObject:messageObject
-                                currentViewController:[BMMediatorManager shareInstance].currentViewController
+                                currentViewController:weexInstance.viewController //[BMMediatorManager shareInstance].currentViewController
                                            completion:^(id result, NSError *error) {
                                                
                                                if (error) {
@@ -338,7 +338,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
                                                    
                                                    /* 失败回调 */
                                                    if (failedCallback) {
-                                                       NSDictionary *data = [NSDictionary configCallbackDataWithResCode:BMResCodeError msg:errorMsg data:nil];
+                                                       NSDictionary *data = [self configCallbackDataWithResCode:SJResCodeError msg:errorMsg data:nil];
                                                        failedCallback(data);
                                                    }
                                                    
@@ -346,7 +346,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
                                                    
                                                    /* 成功回调 */
                                                    if (successCallback) {
-                                                       NSDictionary *data = [NSDictionary configCallbackDataWithResCode:BMResCodeSuccess msg:@"Share success" data:nil];
+                                                       NSDictionary *data = [self configCallbackDataWithResCode:SJResCodeSuccess msg:@"Share success" data:nil];
                                                        successCallback(data);
                                                    }
                                                    
@@ -386,7 +386,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     if (error) {
         WXLogError(@"%@",error);
         NSString   *errorMsg = [self getMesageWithError:error type:@"Google login"];
-        NSDictionary *resDic = [NSDictionary configCallbackDataWithResCode:BMResCodeError msg:errorMsg data:nil];
+        NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeError msg:errorMsg data:nil];
         if (self.failedCallback) {
             self.failedCallback(resDic);
         }
@@ -394,7 +394,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
         if (self.successCallback) {
             NSString *show = [NSString stringWithFormat:@"Google login success"];
             NSMutableDictionary *userInfo = [user yy_modelToJSONObject];
-            NSDictionary *resDic = [NSDictionary configCallbackDataWithResCode:BMResCodeSuccess msg:show data:userInfo];
+            NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeSuccess msg:show data:userInfo];
             self.successCallback(resDic);
         }
     }
@@ -407,7 +407,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     if (error) {
         WXLogError(@"%@",error);
         NSString   *errorMsg = [self getMesageWithError:error type:@"Google logout"];
-        NSDictionary *resDic = [NSDictionary configCallbackDataWithResCode:BMResCodeError msg:errorMsg data:nil];
+        NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeError msg:errorMsg data:nil];
         if (self.failedCallback) {
             self.failedCallback(resDic);
         }
@@ -415,7 +415,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
         if (self.successCallback) {
             NSString *show = [NSString stringWithFormat:@"Google logout success"];
             NSMutableDictionary *userInfo = [user yy_modelToJSONObject];
-            NSDictionary *resDic = [NSDictionary configCallbackDataWithResCode:BMResCodeSuccess msg:show data:userInfo];
+            NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeSuccess msg:show data:userInfo];
             self.successCallback(resDic);
         }
     }
@@ -529,6 +529,21 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
         }
     }
     return result;
+}
+
+#pragma mark Tool
+- (NSDictionary *)configCallbackDataWithResCode:(NSInteger)resCode msg:(NSString *)msg data:(id)data
+{
+    NSMutableDictionary *resultDic = [[NSMutableDictionary alloc] init];
+    
+    msg = msg ?: @"";
+    data = data ?: @"";
+    
+    [resultDic setValue:[NSNumber numberWithInteger:resCode] forKey:@"status"];
+    [resultDic setValue:msg forKey:@"errorMsg"];
+    [resultDic setValue:data forKey:@"data"];
+    
+    return resultDic;
 }
 
 @end

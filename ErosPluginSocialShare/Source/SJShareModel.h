@@ -10,6 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// 请求code
+typedef NS_OPTIONS(NSInteger, SJResCode) {
+    SJResCodeSuccess = 0,
+    SJResCodeError = 9,
+    SJResCodeOther = 3
+};
+
 /** 平台 */
 typedef NS_ENUM(NSInteger,BMSharePlatformType) {
     BMSharePlatformType_WechatSession,                         // 微信聊天
