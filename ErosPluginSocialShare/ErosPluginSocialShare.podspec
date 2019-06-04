@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "ErosPluginSocialShare"
-  spec.version      = "1.1.3"
+  spec.version      = "1.1.4"
   spec.summary      = "ErosPluginSocialShare Source ."
 
 
@@ -46,9 +46,7 @@ Pod::Spec.new do |spec|
   # spec.tvos.deployment_target = "9.0"
 
 
-
   spec.source          = { :git => "https://github.com/zliuxingyu/Eros-Plugin-iOS-SocialShare.git", :tag => spec.version.to_s }
-
 
   spec.source_files    = "Source/*.{h,m,mm}"
 
@@ -62,10 +60,15 @@ Pod::Spec.new do |spec|
   # spec.resources = "Resources/*.png"
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
+  spec.resource = 'GoogleFramworks/GoogleSignIn.bundle'
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  
+  spec.frameworks = "LocalAuthentication", "SafariServices", "SystemConfiguration"
+  spec.vendored_frameworks = 'GoogleFramworks/GoogleSignInDependencies.framework', 'GoogleFramworks/GoogleSignIn.framework'
+
+
   # spec.framework  = "SomeFramework"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
 
