@@ -142,7 +142,7 @@ function(resData){
 ```
 
 ## Change Log
-**iOS 1.2.1** <br>
+**iOS 1.2.2** <br>
 [最新版]
 1. 调试。
 
