@@ -10,11 +10,11 @@
 		24C44B028D2E46B1F65642A7 /* libPods-ErosPluginSocialShareUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FCE8FA2C2E890930F481FCC /* libPods-ErosPluginSocialShareUITests.a */; };
 		322100355073450186FAB777 /* libPods-ErosPluginSocialShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5618D3604ECE1B87A3BD9873 /* libPods-ErosPluginSocialShare.a */; };
 		50975207166BDD0F248BA299 /* libPods-ErosPluginSocialShareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EFC523D64126F492F1EA5EC /* libPods-ErosPluginSocialShareTests.a */; };
+		A33793C622A61280001892D7 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33793C322A61280001892D7 /* GoogleSignIn.framework */; };
+		A33793C722A61280001892D7 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33793C422A61280001892D7 /* GoogleSignInDependencies.framework */; };
+		A33793C822A61280001892D7 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A33793C522A61280001892D7 /* GoogleSignIn.bundle */; };
 		A337B28A22A1F99D0006E29B /* SJUmengModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A337B28822A1F99D0006E29B /* SJUmengModule.m */; };
 		A337B28D22A1FA070006E29B /* SJShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A337B28C22A1FA070006E29B /* SJShareModel.m */; };
-		A337B29222A1FB830006E29B /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A337B28F22A1FB830006E29B /* GoogleSignIn.bundle */; };
-		A337B29322A1FB830006E29B /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A337B29022A1FB830006E29B /* GoogleSignInDependencies.framework */; };
-		A337B29422A1FB830006E29B /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A337B29122A1FB830006E29B /* GoogleSignIn.framework */; };
 		A337B29622A1FBC60006E29B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A337B29522A1FBC60006E29B /* SystemConfiguration.framework */; };
 		A337B29822A1FBD00006E29B /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A337B29722A1FBD00006E29B /* SafariServices.framework */; };
 		A337B29A22A1FBD90006E29B /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A337B29922A1FBD90006E29B /* LocalAuthentication.framework */; };
@@ -51,13 +51,13 @@
 		5ABD3D412BE48801855C900A /* Pods-ErosPluginSocialShareUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ErosPluginSocialShareUITests.release.xcconfig"; path = "Target Support Files/Pods-ErosPluginSocialShareUITests/Pods-ErosPluginSocialShareUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5EFC523D64126F492F1EA5EC /* libPods-ErosPluginSocialShareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErosPluginSocialShareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCE8FA2C2E890930F481FCC /* libPods-ErosPluginSocialShareUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErosPluginSocialShareUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A33793C322A61280001892D7 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		A33793C422A61280001892D7 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
+		A33793C522A61280001892D7 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
 		A337B28822A1F99D0006E29B /* SJUmengModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJUmengModule.m; sourceTree = "<group>"; };
 		A337B28922A1F99D0006E29B /* SJUmengModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJUmengModule.h; sourceTree = "<group>"; };
 		A337B28B22A1FA070006E29B /* SJShareModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SJShareModel.h; sourceTree = "<group>"; };
 		A337B28C22A1FA070006E29B /* SJShareModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SJShareModel.m; sourceTree = "<group>"; };
-		A337B28F22A1FB830006E29B /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
-		A337B29022A1FB830006E29B /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
-		A337B29122A1FB830006E29B /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		A337B29522A1FBC60006E29B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A337B29722A1FBD00006E29B /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		A337B29922A1FBD90006E29B /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
@@ -88,12 +88,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33793C722A61280001892D7 /* GoogleSignInDependencies.framework in Frameworks */,
 				A337B29A22A1FBD90006E29B /* LocalAuthentication.framework in Frameworks */,
 				A337B29822A1FBD00006E29B /* SafariServices.framework in Frameworks */,
 				A337B29622A1FBC60006E29B /* SystemConfiguration.framework in Frameworks */,
-				A337B29322A1FB830006E29B /* GoogleSignInDependencies.framework in Frameworks */,
-				A337B29422A1FB830006E29B /* GoogleSignIn.framework in Frameworks */,
 				322100355073450186FAB777 /* libPods-ErosPluginSocialShare.a in Frameworks */,
+				A33793C622A61280001892D7 /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,9 +145,9 @@
 		A337B28E22A1FB830006E29B /* GoogleFramworks */ = {
 			isa = PBXGroup;
 			children = (
-				A337B28F22A1FB830006E29B /* GoogleSignIn.bundle */,
-				A337B29022A1FB830006E29B /* GoogleSignInDependencies.framework */,
-				A337B29122A1FB830006E29B /* GoogleSignIn.framework */,
+				A33793C522A61280001892D7 /* GoogleSignIn.bundle */,
+				A33793C322A61280001892D7 /* GoogleSignIn.framework */,
+				A33793C422A61280001892D7 /* GoogleSignInDependencies.framework */,
 			);
 			path = GoogleFramworks;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A337B29222A1FB830006E29B /* GoogleSignIn.bundle in Resources */,
+				A33793C822A61280001892D7 /* GoogleSignIn.bundle in Resources */,
 				A368A00622A12E0300482A29 /* LaunchScreen.storyboard in Resources */,
 				A368A00322A12E0300482A29 /* Assets.xcassets in Resources */,
 				A368A00122A12E0100482A29 /* Main.storyboard in Resources */,
@@ -658,6 +658,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ErosPluginSocialShare/google+",
+					"$(PROJECT_DIR)/GoogleFramworks",
 				);
 				INFOPLIST_FILE = ErosPluginSocialShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -681,6 +682,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ErosPluginSocialShare/google+",
+					"$(PROJECT_DIR)/GoogleFramworks",
 				);
 				INFOPLIST_FILE = ErosPluginSocialShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

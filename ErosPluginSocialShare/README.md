@@ -142,8 +142,8 @@ function(resData){
 ```
 
 ## Change Log
-**iOS 1.1.4** <br>
+**iOS 1.1.5** <br>
 [最新版]
-1. 增加Google登录相关库文件。
+1. 引用调整。
 
 
