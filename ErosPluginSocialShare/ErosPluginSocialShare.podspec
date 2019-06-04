@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "ErosPluginSocialShare"
-  spec.version      = "1.1.8"
+  spec.version      = "1.1.9"
   spec.summary      = "ErosPluginSocialShare Source ."
 
 
@@ -83,7 +83,7 @@ Pod::Spec.new do |spec|
   spec.dependency 'YYModel'	
   spec.dependency 'WeexSDK' 
   spec.dependency 'WeexPluginLoader' 
-  spec.dependency 'ErosPluginBaseLibrary'
+  spec.dependency 'ErosPluginBaseLibrary', '1.3.5' 
 
 
 end
