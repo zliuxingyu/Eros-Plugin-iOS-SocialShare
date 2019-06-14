@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8E971BC277FED5CAE93B770BCDCD032F"
+               BlueprintIdentifier = "68A1D44A8066741A14D43D1437380A48"
                BuildableName = "libPods-ErosPluginSocialShareTests.a"
                BlueprintName = "Pods-ErosPluginSocialShareTests"
                ReferencedContainer = "container:Pods.xcodeproj">
