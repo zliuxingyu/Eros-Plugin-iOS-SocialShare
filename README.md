@@ -17,12 +17,13 @@
 
 ```ruby
 def common
-...忽略其他库的引用
-# 在这里添加引用 ErosPluginSocialShare
-pod 'ErosPluginSocialShare', :git => 'https://github.com/zliuxingyu/Eros-Plugin-iOS-SocialShare.git', :tag => '版本'
+    ...忽略其他库的引用
+    # 在这里添加引用 ErosPluginSocialShare
+    pod 'ErosPluginSocialShare'
 end
+
 target 'WeexEros' do
-common
+    common
 end
 ```
 
