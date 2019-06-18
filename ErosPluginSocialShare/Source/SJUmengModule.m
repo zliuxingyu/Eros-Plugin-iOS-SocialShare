@@ -14,9 +14,6 @@
 #import "YYModel.h"
 #import "SJShareModel.h"
 
-//#import "NSDictionary+Util.h"
-//#import "BMMediatorManager.h"
-
 WX_PlUGIN_EXPORT_MODULE(SJSocialShare, SJUmengModule)
 
 @interface SJUmengModule ()<GIDSignInDelegate, GIDSignInUIDelegate>
@@ -62,11 +59,6 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
  */
 - (void)initWechat:(NSDictionary *)info
 {
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession
-                                          appKey:info[@"appKey"]
-                                       appSecret:info[@"appSecret"]
-                                     redirectURL:info[@"redirectURL"]];
-    
     NSString *appKey      = info[@"appKey"] ? info[@"appKey"]: @"";
     NSString *appSecret   = info[@"appSecret"] ? info[@"appSecret"]: @"";
     NSString *redirectURL = info[@"redirectURL"] ? info[@"redirectURL"]: @"";
@@ -85,15 +77,10 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
  */
 - (void)initFacebook:(NSDictionary *)info
 {
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Facebook
-                                          appKey:info[@"appKey"]
-                                       appSecret:info[@"appSecret"]
-                                     redirectURL:info[@"redirectURL"]];
-    
     NSString *appKey      = info[@"appKey"] ? info[@"appKey"]: @"";
     NSString *appSecret   = info[@"appSecret"] ? info[@"appSecret"]: @"";
     NSString *redirectURL = info[@"redirectURL"] ? info[@"redirectURL"]: @"";
-    [self initPlatformWithPlaform:UMSocialPlatformType_WechatSession appKey:appKey appSecret:appSecret redirectURL:redirectURL];
+    [self initPlatformWithPlaform:UMSocialPlatformType_Facebook appKey:appKey appSecret:appSecret redirectURL:redirectURL];
 }
 
 
@@ -180,6 +167,8 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     if (platform == UMSocialPlatformType_GooglePlus) {
         
         [[GIDSignIn sharedInstance] signOut];
+        
+        [[GIDSignIn sharedInstance] disconnect];
         
         self.successCallback = successCallback;
         
@@ -393,7 +382,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     } else {
         if (self.successCallback) {
             NSString *show = [NSString stringWithFormat:@"Google login success"];
-            NSMutableDictionary *userInfo = [user yy_modelToJSONObject];
+            NSMutableDictionary *userInfo = [self getSignInInfoWithModel:user];
             NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeSuccess msg:show data:userInfo];
             self.successCallback(resDic);
         }
@@ -429,7 +418,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
 // Stop the UIActivityIndicatorView animation that was started when the user
 // pressed the Sign In button
 - (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
-    //[myActivityIndicator stopAnimating];
+    
 }
 
 // Present a view that prompts the user to sign in with Google
@@ -529,6 +518,30 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
         }
     }
     return result;
+}
+
+/** 处理Google登录成功后返回的信息 */
+- (NSMutableDictionary *)getSignInInfoWithModel:(GIDGoogleUser *)user{
+    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+    if (!user) {
+        return userInfo;
+    }
+    
+    NSString *userId     = user.userID;                  // For client-side use only!
+    NSString *idToken    = user.authentication.idToken;  // Safe to send to the server
+    NSString *fullName   = user.profile.name;
+    NSString *givenName  = user.profile.givenName;
+    NSString *familyName = user.profile.familyName;
+    NSString *email      = user.profile.email;
+    
+    [userInfo setObject:userId forKey:@"userId"];
+    [userInfo setObject:idToken forKey:@"idToken"];
+    [userInfo setObject:fullName forKey:@"fullName"];
+    [userInfo setObject:givenName forKey:@"givenName"];
+    [userInfo setObject:familyName forKey:@"familyName"];
+    [userInfo setObject:email forKey:@"email"];
+    
+    return userInfo;
 }
 
 #pragma mark Tool

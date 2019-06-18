@@ -83,15 +83,15 @@ socialShare.initGoogle('Google平台申请的clientID')
 * 分享：`shareWithInfo(info,successCallback,failedCallback)`
 
 ```js
-socialShare.shareWithInfo({
+socialShare.shareWithInfo({ /* 注意：请传对应分享类型参数，没有的不传；shareType，platform为必传 */
 title:'',                   // 分享的标题
 content:'',                 // 分享的文字内容
 url: '',                    // 分享对应的URL地址，如h5、音乐链接、视频链接、小程序的链接
 thumImage: '',              // 分享类型的缩略图url
 image: '',                  // 分享的图片url
 path: '',                   // 分享小程序用到的页面路径
-shareType: 'Webpage',       // 分享的类型 （BMShareType对应描述）
-platform: 'WechatSession'   // 分享平台 朋友圈/好友（BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"）
+shareType: 'Webpage',       // *分享的类型 （BMShareType对应描述）
+platform: 'WechatSession'   // *分享平台 朋友圈/好友（BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"）
 },function(resData){     
 // 成功回调
 },function(resData){
@@ -100,10 +100,10 @@ platform: 'WechatSession'   // 分享平台 朋友圈/好友（BMSharePlatformTy
 
 // 平台
 platform:[
-WechatSession,              // 分享至微信好友及微信登录
-WechatTimeLine,             // 分享至朋友圈
-Facebook,                   // 分享至Facebook及授权登录
-Google                      // Google授权登录
+WechatSession,              // 分享至微信好友及微信登录，支持分享类型：[@"文字", @"图片", @"图文", @"音乐链接", @"视频", @"网页链接", @"微信小程序"]
+WechatTimeLine,             // 分享至朋友圈，支持分享类型同上
+Facebook,                   // 分享至Facebook及授权登录，支持分享类型：[@"图片", @"图文", @"本地视频", @"网页链接"]
+Google                      // Google授权登录 暂不支持分享
 ]
 
 // 分享类型
@@ -143,8 +143,11 @@ function(resData){
 ```
 
 ## Change Log
-**iOS 1.2.6** <br>
+**iOS 1.2.7** <br>
 [最新版]
+1. 优化：Google登录成功后返回主要信息。
+
+**iOS 1.2.6** <br>
 1. 调试。
 
 

@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 请求code
 typedef NS_OPTIONS(NSInteger, SJResCode) {
-    SJResCodeSuccess = 0,
-    SJResCodeError = 9,
-    SJResCodeOther = 3
+    SJResCodeError   = 0,
+    SJResCodeSuccess = 1,
+    SJResCodeOther   = 3
 };
 
 /** 平台 */
