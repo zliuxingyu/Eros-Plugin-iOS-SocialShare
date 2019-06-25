@@ -143,11 +143,13 @@ function(resData){
 ```
 
 ## Change Log
-**iOS 1.2.7** <br>
+**iOS 1.2.9** <br>
 [最新版]
-1. 优化：Google登录成功后返回主要信息。
+1. 优化：Google登录成功后返回数据调整。
 
-**iOS 1.2.6** <br>
-1. 调试。
+
+
+
+
 
 
