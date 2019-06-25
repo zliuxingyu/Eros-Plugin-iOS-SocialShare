@@ -527,20 +527,42 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
         return userInfo;
     }
     
-    NSString *userId     = user.userID;                  // For client-side use only!
-    NSString *idToken    = user.authentication.idToken;  // Safe to send to the server
-    NSString *fullName   = user.profile.name;
-    NSString *givenName  = user.profile.givenName;
-    NSString *familyName = user.profile.familyName;
-    NSString *email      = user.profile.email;
+    NSString *userId         = user.userID ? user.userID : @"";                                  // For client-side use only!
+    NSString *hostedDomain   = user.hostedDomain ? user.hostedDomain : @"";
+    NSString *serverAuthCode = user.serverAuthCode ? user.serverAuthCode : @"";
+    NSString *fullName       = user.profile.name ? user.profile.name : @"";
+    NSString *givenName      = user.profile.givenName ? user.profile.givenName : @"";
+    NSString *familyName     = user.profile.familyName ? user.profile.familyName : @"";
+    NSString *email          = user.profile.email ? user.profile.email : @"";
+    NSString *idToken        = user.authentication.idToken ? user.authentication.idToken : @"";  // Safe to send to the server
+    NSString *accessToken    = user.authentication.accessToken ? user.authentication.accessToken : @"";
+    NSString *refreshToken   = user.authentication.refreshToken ? user.authentication.refreshToken : @"";
+    NSString *clientID       = user.authentication.clientID ? user.authentication.clientID : @"";
+    
+    NSString *accessTokenExpirationDate = @"";
+    if (user.authentication.accessTokenExpirationDate) {
+        accessTokenExpirationDate = [self getTimeByDate:user.authentication.accessTokenExpirationDate];
+    }
+    
+    NSString *idTokenExpirationDate = @"";
+    if (user.authentication.idTokenExpirationDate) {
+        idTokenExpirationDate = [self getTimeByDate:user.authentication.idTokenExpirationDate];
+    }
     
     [userInfo setObject:userId forKey:@"userId"];
-    [userInfo setObject:idToken forKey:@"idToken"];
+    [userInfo setObject:hostedDomain forKey:@"hostedDomain"];
+    [userInfo setObject:serverAuthCode forKey:@"serverAuthCode"];
     [userInfo setObject:fullName forKey:@"fullName"];
     [userInfo setObject:givenName forKey:@"givenName"];
     [userInfo setObject:familyName forKey:@"familyName"];
     [userInfo setObject:email forKey:@"email"];
-    
+    [userInfo setObject:idToken forKey:@"idToken"];
+    [userInfo setObject:accessToken forKey:@"accessToken"];
+    [userInfo setObject:refreshToken forKey:@"refreshToken"];
+    [userInfo setObject:clientID forKey:@"clientID"];
+    [userInfo setObject:accessTokenExpirationDate forKey:@"accessTokenExpirationDate"];
+    [userInfo setObject:idTokenExpirationDate forKey:@"idTokenExpirationDate"];
+
     return userInfo;
 }
 
@@ -558,5 +580,15 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     
     return resultDic;
 }
+
+- (NSString *)getTimeByDate:(NSDate *)date
+{
+    NSString *time = @"";
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterFullStyle];
+    time = [formatter stringFromDate:date];
+    return time;
+}
+
 
 @end
