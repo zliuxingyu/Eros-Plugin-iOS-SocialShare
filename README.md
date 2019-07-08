@@ -143,6 +143,10 @@ function(resData){
 ```
 
 ## Change Log
+**iOS 1.3.0** <br>
+1. 优化：单独集成Google登入登出管理。
+
+
 **iOS 1.2.9** <br>
 [最新版]
 1. 优化：Google登录成功后返回数据调整。
