@@ -2,7 +2,7 @@
 
 > 功能简介：
 1. 基于友盟ShareSDK实现：微信分享（分享到朋友圈，微信好友），微信授权登录登出，以及Facebook分享和授权登录登出；
-2. 基于Google官方的授权登录登出。 
+2. 基于Google官方的授权登录登出及刷新Token方法。 
 
 > 在使用登录分享之前，还需要一些配置 <br>
 1. 首先请到友盟平台注册App获取AppKey; <br>
@@ -142,13 +142,29 @@ function(resData){
 })
 ```
 
+* 刷新登录Token：`refreshTokenWithPlatformType('platformType',successCallback,failedCallback)`
+
+```js
+socialShare.refreshTokenWithPlatformType(
+'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"
+function(resData){     
+// 成功回调
+},function(resData){
+// 失败回调
+})
+```
 ## Change Log
+
+**iOS 1.3.1** <br>
+[最新版]
+1. 优化：集成Google刷新登录Token方法。
+
+
 **iOS 1.3.0** <br>
 1. 优化：单独集成Google登入登出管理。
 
 
 **iOS 1.2.9** <br>
-[最新版]
 1. 优化：Google登录成功后返回数据调整。
 
 

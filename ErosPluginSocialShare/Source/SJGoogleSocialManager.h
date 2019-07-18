@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Google登出结果
 - (void)logoutFromGoogleWithSuccessCallback:(WXModuleCallback)successCallback failedCallback:(WXModuleCallback)failedCallback;
 
+// Google刷新登录Token
+- (void)refreshTokenFromGoogleWithSuccessCallback:(WXModuleCallback)successCallback failedCallback:(WXModuleCallback)failedCallback;
+
 @end
 
 NS_ASSUME_NONNULL_END

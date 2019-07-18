@@ -16,6 +16,9 @@
 @property (copy,   nonatomic) WXModuleCallback loginFailedCallback;                     // Google登录失败信息回调
 @property (copy,   nonatomic) WXModuleCallback logoutSuccessCallback;                   // Google登出成功信息回调
 @property (copy,   nonatomic) WXModuleCallback logoutFailedCallback;                    // Google登出失败信息回调
+@property (copy,   nonatomic) WXModuleCallback refreshTokenSuccessCallback;             // Google刷新Token成功信息回调
+@property (copy,   nonatomic) WXModuleCallback refreshTokenFailedCallback;              // Google刷新Token失败信息回调
+@property (assign, nonatomic) SJLoginType      loginType;                               // 登录方式【点击入口登录/刷新Token重新登录】
 
 @end
 
@@ -48,11 +51,14 @@
 // Google登录结果
 - (void)loginFromGoogleWithSuccessCallback:(WXModuleCallback)successCallback failedCallback:(WXModuleCallback)failedCallback
 {
+    self.loginType = SJLoginType_ClickEntrance;
+    
     [[GIDSignIn sharedInstance] signIn];
     
     self.loginSuccessCallback = successCallback;
     
     self.loginFailedCallback  = failedCallback;
+    
 }
 
 // Google登出结果
@@ -61,10 +67,23 @@
     [[GIDSignIn sharedInstance] disconnect];
     
     [[GIDSignIn sharedInstance] signOut];
-
+    
     self.logoutSuccessCallback = successCallback;
     
     self.logoutFailedCallback  = failedCallback;
+    
+}
+
+// Google刷新登录Token [静默]
+- (void)refreshTokenFromGoogleWithSuccessCallback:(WXModuleCallback)successCallback failedCallback:(WXModuleCallback)failedCallback
+{
+    self.loginType = SJLoginType_RefreshToken;
+    
+    [[GIDSignIn sharedInstance] signInSilently];
+    
+    self.refreshTokenSuccessCallback = successCallback;
+    
+    self.refreshTokenFailedCallback  = failedCallback;
 }
 
 #pragma mark Google登录代理 - GIDSignInDelegate
@@ -82,19 +101,38 @@
     //    NSString *email = user.profile.email;
     // ...
     
-    if (error) {
-        WXLogError(@"%@",error);
-        NSString   *errorMsg = [self getMesageWithError:error type:@"Google login"];
-        NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeError msg:errorMsg data:nil];
-        if (self.loginFailedCallback) {
-            self.loginFailedCallback(resDic);
+    if (self.loginType == SJLoginType_RefreshToken) {
+        if (error) {
+            WXLogError(@"%@",error);
+            NSString   *errorMsg = [self getMesageWithError:error type:@"Google refresh token"];
+            NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeError msg:errorMsg data:nil];
+            if (self.refreshTokenFailedCallback) {
+                self.refreshTokenFailedCallback(resDic);
+            }
+        } else {
+            if (self.refreshTokenSuccessCallback) {
+                NSString *show = [NSString stringWithFormat:@"Google refresh token success"];
+                NSMutableDictionary *userInfo = [self getSignInInfoWithModel:user];
+                NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeSuccess msg:show data:userInfo];
+                self.refreshTokenSuccessCallback(resDic);
+            }
         }
+        
     } else {
-        if (self.loginSuccessCallback) {
-            NSString *show = [NSString stringWithFormat:@"Google login success"];
-            NSMutableDictionary *userInfo = [self getSignInInfoWithModel:user];
-            NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeSuccess msg:show data:userInfo];
-            self.loginSuccessCallback(resDic);
+        if (error) {
+            WXLogError(@"%@",error);
+            NSString   *errorMsg = [self getMesageWithError:error type:@"Google login"];
+            NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeError msg:errorMsg data:nil];
+            if (self.loginFailedCallback) {
+                self.loginFailedCallback(resDic);
+            }
+        } else {
+            if (self.loginSuccessCallback) {
+                NSString *show = [NSString stringWithFormat:@"Google login success"];
+                NSMutableDictionary *userInfo = [self getSignInInfoWithModel:user];
+                NSDictionary *resDic = [self configCallbackDataWithResCode:SJResCodeSuccess msg:show data:userInfo];
+                self.loginSuccessCallback(resDic);
+            }
         }
     }
 }
@@ -259,7 +297,8 @@
 {
     NSString *time = @"";
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterFullStyle];
+    //[formatter setDateStyle:NSDateFormatterFullStyle];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     time = [formatter stringFromDate:date];
     return time;
 }

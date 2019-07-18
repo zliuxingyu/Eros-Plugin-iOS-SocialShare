@@ -10,7 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// 请求code
+/** 登录方式 */
+typedef NS_OPTIONS(NSInteger, SJLoginType) {
+    SJLoginType_ClickEntrance  = 0,                           // 点击入口登录
+    SJLoginType_RefreshToken   = 1                            // 刷新Token重新登录
+};
+
+/** 请求code */
 typedef NS_OPTIONS(NSInteger, SJResCode) {
     SJResCodeError   = 0,
     SJResCodeSuccess = 1,

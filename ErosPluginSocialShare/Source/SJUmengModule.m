@@ -24,14 +24,14 @@ WX_PlUGIN_EXPORT_MODULE(SJSocialShare, SJUmengModule)
 
 @synthesize weexInstance;
 
-WX_EXPORT_METHOD_SYNC(@selector(initUM:))                                               // 初始化友盟方法
-WX_EXPORT_METHOD_SYNC(@selector(initWechat:))                                           // 初始化Wechat平台方法
-WX_EXPORT_METHOD_SYNC(@selector(initFacebook:))                                         // 初始化Facebook平台方法
-WX_EXPORT_METHOD_SYNC(@selector(initGoogle:))                                           // 初始化Google平台方法
-WX_EXPORT_METHOD(@selector(loginWithPlatformType:successCallback:failedCallback:))      // 第三方授权【登录】方法
-WX_EXPORT_METHOD(@selector(logoutWithPlatformType:successCallback:failedCallback:))     // 取消授权【登出】方法
-WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))              // 分享方法
-
+WX_EXPORT_METHOD_SYNC(@selector(initUM:))                                                  // 初始化友盟方法
+WX_EXPORT_METHOD_SYNC(@selector(initWechat:))                                              // 初始化Wechat平台方法
+WX_EXPORT_METHOD_SYNC(@selector(initFacebook:))                                            // 初始化Facebook平台方法
+WX_EXPORT_METHOD_SYNC(@selector(initGoogle:))                                              // 初始化Google平台方法
+WX_EXPORT_METHOD(@selector(loginWithPlatformType:successCallback:failedCallback:))         // 第三方授权【登录】方法
+WX_EXPORT_METHOD(@selector(logoutWithPlatformType:successCallback:failedCallback:))        // 取消授权【登出】方法
+WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))                 // 分享方法
+WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCallback:))  // 刷新登录Token
 
 #pragma mark init
 /**
@@ -48,11 +48,11 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
 /**
  *  初始化第三方平台: 微信 Wechat【友盟】
  *  @param info  注册信息字典[键值]
-             {
-                appKey:      'appkey',        // 微信开发平台申请的appkey
-                appSecret:   'appSecret',     // appKey对应的appSecret
-                redirectURL: '回调页面'         // 授权回调页面
-             }
+ {
+ appKey:      'appkey',        // 微信开发平台申请的appkey
+ appSecret:   'appSecret',     // appKey对应的appSecret
+ redirectURL: '回调页面'         // 授权回调页面
+ }
  */
 - (void)initWechat:(NSDictionary *)info
 {
@@ -66,11 +66,11 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
 /**
  *  初始化第三方平台: Facebook 【友盟】
  *  @param info  注册信息字典[键值]
-             {
-                appKey:      'appkey',        // Facebook开发平台申请的appkey
-                appSecret:   'appSecret',     // appKey对应的appSecret
-                redirectURL: '回调页面'        // 授权回调页面
-             }
+ {
+ appKey:      'appkey',        // Facebook开发平台申请的appkey
+ appSecret:   'appSecret',     // appKey对应的appSecret
+ redirectURL: '回调页面'        // 授权回调页面
+ }
  */
 - (void)initFacebook:(NSDictionary *)info
 {
@@ -102,13 +102,13 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
 - (void)loginWithPlatformType:(NSString *)platformType successCallback:(WXModuleCallback)successCallback failedCallback:(WXModuleCallback)failedCallback
 {
     // 是否安装当前平台
-//    BOOL isInstall = [[UMSocialManager defaultManager] isInstall:platform];
-//    if (!isInstall) {
-//        [self alertWithShow:@"平台未安装"];
-//    }
+    //    BOOL isInstall = [[UMSocialManager defaultManager] isInstall:platform];
+    //    if (!isInstall) {
+    //        [self alertWithShow:@"平台未安装"];
+    //    }
     
     UMSocialPlatformType platform = [self getPlatformTypeWithKey:platformType];
-
+    
     NSString *platformName = [self getPlatformShowName:platform];
     
     if (platform == UMSocialPlatformType_GooglePlus) {
@@ -160,7 +160,7 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     UMSocialPlatformType platform = [self getPlatformTypeWithKey:platformType];
     
     NSString *platformName = [self getPlatformShowName:platform];
-
+    
     if (platform == UMSocialPlatformType_GooglePlus) {
         // Google登出
         [[SJGoogleSocialManager sharedInstance] logoutFromGoogleWithSuccessCallback:^(id result) {
@@ -207,33 +207,33 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
 /**
  *  各平台分享：【不支持Google分享】
  *  @param info  分享信息字典[键值]
-             {
-                title:'',                 // 分享的标题
-                content:'',               // 分享的文字内容 字符串
-                url: '',                  // 分享对应的URL地址，如h5、音乐链接、视频链接、小程序的链接
-                thumImage: '',            // 分享类型的缩略图url
-                image: '',                // 分享的图片url
-                path: '',                 // 分享小程序用到的页面路径
-                userName: ''              // 小程序名称
-                shareType: 'Webpage',     // 分享的类型：网页链接  （BMShareType 对应描述）
-                platform: 'WechatSession' // 分享平台：朋友圈/好友 （BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"）
-             }
+ {
+ title:'',                 // 分享的标题
+ content:'',               // 分享的文字内容 字符串
+ url: '',                  // 分享对应的URL地址，如h5、音乐链接、视频链接、小程序的链接
+ thumImage: '',            // 分享类型的缩略图url
+ image: '',                // 分享的图片url
+ path: '',                 // 分享小程序用到的页面路径
+ userName: ''              // 小程序名称
+ shareType: 'Webpage',     // 分享的类型：网页链接  （BMShareType 对应描述）
+ platform: 'WechatSession' // 分享平台：朋友圈/好友 （BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"）
+ }
  *  @param successCallback 成功回调
  *  @param failedCallback  失败回调
  *  支持类型：
-    Wechat  ：[@"纯文本", @"图片", @"图文", @"音乐链接", @"视频", @"网页链接", @"微信小程序"]
-    FaceBook：[@"图片", @"图文", @"本地视频", @"网页链接"]
+ Wechat  ：[@"纯文本", @"图片", @"图文", @"音乐链接", @"视频", @"网页链接", @"微信小程序"]
+ FaceBook：[@"图片", @"图文", @"本地视频", @"网页链接"]
  */
 - (void)shareWithInfo:(NSDictionary *)info successCallback:(WXModuleCallback)successCallback failedCallback:(WXModuleCallback)failedCallback
 {
     SJShareModel *model = [SJShareModel yy_modelWithJSON:info];
- 
+    
     NSString *shareTitle = model.title?:@"";
     NSString *shareText  = model.content?:@"";
     NSString *shareUrl   = model.url;
     id shareImage        = model.image;
     id thumbImage        = model.thumImage;
-
+    
     UMSocialPlatformType    platformType = UMSocialPlatformType_UnKnown;
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
@@ -255,11 +255,11 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
     }
     
     // 判断当前平是否支持分享
-//    BOOL isSupport = [[UMSocialManager defaultManager] isSupport:platformType];
-//    if (!isSupport) {
-//        //NSLog(@"当前平台不支持分享");
-//        return;
-//    }
+    //    BOOL isSupport = [[UMSocialManager defaultManager] isSupport:platformType];
+    //    if (!isSupport) {
+    //        //NSLog(@"当前平台不支持分享");
+    //        return;
+    //    }
     
     /** 分享类型 */
     //文本
@@ -338,22 +338,53 @@ WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))      
                                                        successCallback(data);
                                                    }
                                                    
-//                                                   if (error) {
-//                                                       UMSocialLogInfo(@"************Share fail with error %@*********",error);
-//                                                       NSLog(@"error = %@",error);
+                                                   //                                                   if (error) {
+                                                   //                                                       UMSocialLogInfo(@"************Share fail with error %@*********",error);
+                                                   //                                                       NSLog(@"error = %@",error);
                                                    
-//                                                   if ([result isKindOfClass:[UMSocialShareResponse class]]) {
-//                                                       UMSocialShareResponse *resp = result;
-//                                                       //分享结果消息
-//                                                       UMSocialLogInfo(@"response message is %@",resp.message);
-//                                                       //第三方原始返回的数据
-//                                                       UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
-//
-//                                                   }else{
-//                                                       UMSocialLogInfo(@"response data is %@",result);
-//                                                   }
+                                                   //                                                   if ([result isKindOfClass:[UMSocialShareResponse class]]) {
+                                                   //                                                       UMSocialShareResponse *resp = result;
+                                                   //                                                       //分享结果消息
+                                                   //                                                       UMSocialLogInfo(@"response message is %@",resp.message);
+                                                   //                                                       //第三方原始返回的数据
+                                                   //                                                       UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+                                                   //
+                                                   //                                                   }else{
+                                                   //                                                       UMSocialLogInfo(@"response data is %@",result);
+                                                   //                                                   }
                                                }
                                            }];
+}
+
+
+/**
+ *  refreshToken 刷新登录token
+ *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google"）
+ *  @param successCallback 成功回调
+ *  @param failedCallback  失败回调
+ */
+- (void)refreshTokenWithPlatformType:(NSString *)platformType successCallback:(WXModuleCallback)successCallback failedCallback:(WXModuleCallback)failedCallback
+{
+    UMSocialPlatformType platform = [self getPlatformTypeWithKey:platformType];
+    
+    // NSString *platformName = [self getPlatformShowName:platform];
+    
+    if (platform == UMSocialPlatformType_GooglePlus) {
+        // Google
+        [[SJGoogleSocialManager sharedInstance] refreshTokenFromGoogleWithSuccessCallback:^(id result) {
+            if (successCallback) {
+                successCallback(result);
+            }
+            
+        } failedCallback:^(id result) {
+            if (failedCallback) {
+                failedCallback(result);
+            }
+        }];
+    }
+    else{
+        
+    }
 }
 
 #pragma mark private
