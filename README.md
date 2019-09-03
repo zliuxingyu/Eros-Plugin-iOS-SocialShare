@@ -154,9 +154,12 @@ function(resData){
 })
 ```
 ## Change Log
+**iOS 1.3.2** <br>
+[最新版]
+1. 更新友盟UMCShare至6.9.6；
+2. 更新Eros基础库ErosPluginBaseLibrary至1.3.6。
 
 **iOS 1.3.1** <br>
-[最新版]
 1. 优化：集成Google刷新登录Token方法。
 
 

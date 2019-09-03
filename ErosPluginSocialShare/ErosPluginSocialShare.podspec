@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "ErosPluginSocialShare"
-  spec.version      = "1.3.1"
+  spec.version      = "1.3.2"
   spec.summary      = "ErosPluginSocialShare Source ."
 
 
@@ -79,8 +79,8 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
-  spec.dependency 'UMCShare/Social/ReducedWeChat', '6.9.5'
-  spec.dependency 'UMCShare/Social/Facebook', '6.9.5' 	
+  spec.dependency 'UMCShare/Social/ReducedWeChat'
+  spec.dependency 'UMCShare/Social/Facebook'
   spec.dependency 'YYModel'	
   spec.dependency 'WeexSDK' 
   spec.dependency 'WeexPluginLoader' 
