@@ -29,12 +29,14 @@ typedef NS_ENUM(NSInteger,BMSharePlatformType) {
     BMSharePlatformType_WechatTimeLine,                        // 微信朋友圈
     BMSharePlatformType_FaceBook,                              // Facebook
     BMSharePlatformType_Google,                                // Google
+    BMSharePlatformType_Twitter                                // Twitter
 };
 
 #define K_SharePlatformWechatSession        @"WechatSession"
 #define K_SharePlatformWechatTimeLine       @"WechatTimeLine"
 #define K_SharePlatformFacebook             @"Facebook"
 #define K_SharePlatformGoogle               @"Google"
+#define K_SharePlatformTwitter              @"Twitter"
 
 /** 分享类型 */
 typedef NS_ENUM(NSInteger,BMShareType) {

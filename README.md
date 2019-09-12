@@ -1,7 +1,7 @@
 # Eros-Plugin-iOS-SocialShare
 
 > 功能简介：
-1. 基于友盟ShareSDK实现：微信分享（分享到朋友圈，微信好友），微信授权登录登出，以及Facebook分享和授权登录登出；
+1. 基于友盟ShareSDK实现：微信分享（分享到朋友圈，微信好友），微信授权登录登出，Twitter，Facebook分享和授权登录登出；
 2. 基于Google官方的授权登录登出及刷新Token方法。 
 
 > 在使用登录分享之前，还需要一些配置 <br>
@@ -71,6 +71,18 @@ redirectURL: '回调页面'   // 授权回调页面
 })
 ```
 
+* 初始化Twitter SDK `initTwitter(info)`
+
+> 在使用分享到Twitter平台功能，或者Twitter登录功能前，需要调用此方法来初始化Twitter平台；
+
+```js
+socialShare.initTwitter({
+appKey: 'appkey',        // Twitter开发平台申请的appkey
+appSecret: 'appSecret',  // appKey对应的appSecret，
+redirectURL: '回调页面'   // 授权回调页面
+})
+```
+
 * 初始化Google SDK `initGoogle('clientID')`
 
 > 在使用Google登录功能前，需要调用此方法来初始化Google平台；
@@ -91,7 +103,7 @@ thumImage: '',              // 分享类型的缩略图url
 image: '',                  // 分享的图片url
 path: '',                   // 分享小程序用到的页面路径
 shareType: 'Webpage',       // *分享的类型 （BMShareType对应描述）
-platform: 'WechatSession'   // *分享平台 朋友圈/好友（BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"）
+platform: 'WechatSession'   // *分享平台 朋友圈/好友（BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"）
 },function(resData){     
 // 成功回调
 },function(resData){
@@ -103,7 +115,8 @@ platform:[
 WechatSession,              // 分享至微信好友及微信登录，支持分享类型：[@"文字", @"图片", @"图文", @"音乐链接", @"视频", @"网页链接", @"微信小程序"]
 WechatTimeLine,             // 分享至朋友圈，支持分享类型同上
 Facebook,                   // 分享至Facebook及授权登录，支持分享类型：[@"图片", @"图文", @"本地视频", @"网页链接"]
-Google                      // Google授权登录 暂不支持分享
+Google,                     // Google授权登录 暂不支持分享
+Twitter                     // 分享至Twitter及授权登录，支持分享类型：[@"文字", @"图片", @"图文", @"音乐链接", @"视频", @"网页链接"]    
 ]
 
 // 分享类型
@@ -122,7 +135,7 @@ MiniProgram // 小程序
 
 ```js
 socialShare.loginWithPlatformType(
-'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"
+'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"
 function(resData){     
 // 成功回调
 },function(resData){
@@ -134,7 +147,7 @@ function(resData){
 
 ```js
 socialShare.logoutWithPlatformType(
-'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"
+'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"
 function(resData){     
 // 成功回调
 },function(resData){
@@ -146,7 +159,7 @@ function(resData){
 
 ```js
 socialShare.refreshTokenWithPlatformType(
-'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"
+'平台类型',  // BMSharePlatformType对应描述，传字符串：@"Google"，暂时只支持Google
 function(resData){     
 // 成功回调
 },function(resData){
@@ -154,10 +167,16 @@ function(resData){
 })
 ```
 ## Change Log
-**iOS 1.3.2** <br>
+
+**iOS 1.3.3** <br>
 [最新版]
+1. 集成基于友盟的Twitter第三方登录及分享。
+
+
+**iOS 1.3.2** <br>
 1. 更新友盟UMCShare至6.9.6；
 2. 更新Eros基础库ErosPluginBaseLibrary至1.3.6。
+
 
 **iOS 1.3.1** <br>
 1. 优化：集成Google刷新登录Token方法。

@@ -12,14 +12,15 @@ def common
     pod 'WXDevtool', :git => 'https://github.com/bmfe/weex-devtool-iOS.git', :configurations => ['Debug']
     
     #Eros iOS 基础库 1.3.5
-    pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.6'
+    #pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.6'
+    pod 'ErosPluginBaseLibrary', :git => 'https://github.com/mayuanyang/eros-plugin-ios-baseLibrary.git'
 
     # 友盟+ 基础依赖库
     pod 'UMCCommon'
     # 安全组件 可选
     #pod 'UMCSecurityPlugins'
     
-    # 1> 集成微信(精简版0.2M)
+    # 1 集成微信(精简版0.2M)
     pod 'UMCShare/Social/ReducedWeChat'
     
     # 2.集成Facebook/Messenger
@@ -28,7 +29,10 @@ def common
     # 3.集成Google+
     pod 'UMCShare/Social/GooglePlus'
     
-    # 4. google+登陆(导入不成功,手动导入)
+    # 4.集成Twitter
+    pod 'UMCShare/Social/Twitter'
+    
+    # 5. google+登陆(导入不成功,手动导入)
     #pod 'GoogleSignIns' 
 end
 

@@ -10,6 +10,11 @@
 #import <WeexSDK/WXUtility.h>
 #import "BMNative.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import <WebKit/WebKit.h>
+#import "BMChartComponent.h"
+#import <WeexSDK/WXSDKInstance_private.h>
+#import <WeexSDK/WXComponent_internal.h>
+#import "YYModel.h"
 
 @class WXWebView;
 
@@ -26,6 +31,8 @@
     contentHeight = contentHeight/(pixelScale*2);
     
     [self fireEvent:@"bmPageFinish" params:@{@"contentHeight": @(contentHeight)}];
+    
+    [self runSetOptionsScript];
 }
 - (void)bm_viewDidLoad
 {
@@ -41,7 +48,7 @@
     if (self.attributes[@"scrollEnabled"] && NO == [self.attributes[@"scrollEnabled"] boolValue]) {
         webview.scrollView.scrollEnabled = NO;
     }
-
+    jsContext[@"mapData"] = self.attributes[@"mapData"];
 }
 
 /** 修复如果url为 NSNull、或者nil的时候 崩溃的问题 weex没有做判断 */
@@ -77,6 +84,29 @@
             }
         }
     });
+}
+
+- (void)runSetOptionsScript
+{
+    NSString *script = [NSString stringWithFormat:@"setOptions(%@)",self.attributes[@"mapData"]];
+    UIWebView * webView = (UIWebView *)self.view;
+    [webView stringByEvaluatingJavaScriptFromString:script];
+}
+
+- (void)_updateAttributesOnComponentThread:(NSDictionary *)attributes
+{
+    [super _updateAttributesOnComponentThread:attributes];
+    
+    [self fillAttributes:attributes];
+}
+
+- (void)fillAttributes:(NSDictionary *)attributes
+{
+    if (attributes[@"mapData"]) {
+        WXPerformBlockOnMainThread(^{
+            [self runSetOptionsScript];
+        });
+    }
 }
 
 @end

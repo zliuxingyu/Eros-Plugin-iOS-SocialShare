@@ -27,6 +27,7 @@ WX_PlUGIN_EXPORT_MODULE(SJSocialShare, SJUmengModule)
 WX_EXPORT_METHOD_SYNC(@selector(initUM:))                                                  // 初始化友盟方法
 WX_EXPORT_METHOD_SYNC(@selector(initWechat:))                                              // 初始化Wechat平台方法
 WX_EXPORT_METHOD_SYNC(@selector(initFacebook:))                                            // 初始化Facebook平台方法
+WX_EXPORT_METHOD_SYNC(@selector(initTwitter:))                                             // 初始化Twitter平台方法
 WX_EXPORT_METHOD_SYNC(@selector(initGoogle:))                                              // 初始化Google平台方法
 WX_EXPORT_METHOD(@selector(loginWithPlatformType:successCallback:failedCallback:))         // 第三方授权【登录】方法
 WX_EXPORT_METHOD(@selector(logoutWithPlatformType:successCallback:failedCallback:))        // 取消授权【登出】方法
@@ -80,6 +81,22 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
     [self initPlatformWithPlaform:UMSocialPlatformType_Facebook appKey:appKey appSecret:appSecret redirectURL:redirectURL];
 }
 
+/**
+ *  初始化第三方平台: Twitter 【友盟】
+ *  @param info  注册信息字典[键值]
+ {
+ appKey:      'appkey',        // Twitter开发平台申请的appkey
+ appSecret:   'appSecret',     // appKey对应的appSecret
+ redirectURL: '回调页面'        // 授权回调页面
+ }
+ */
+- (void)initTwitter:(NSDictionary *)info
+{
+    NSString *appKey      = info[@"appKey"] ? info[@"appKey"]: @"";
+    NSString *appSecret   = info[@"appSecret"] ? info[@"appSecret"]: @"";
+    NSString *redirectURL = info[@"redirectURL"] ? info[@"redirectURL"]: @"";
+    [self initPlatformWithPlaform:UMSocialPlatformType_Twitter appKey:appKey appSecret:appSecret redirectURL:redirectURL];
+}
 
 /**
  *  login 初始化第三方平台: Google 【单独集成】
@@ -95,7 +112,7 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
 
 /**
  *  login 第三方授权【登录】
- *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google"）
+ *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"）
  *  @param successCallback 成功回调
  *  @param failedCallback  失败回调
  */
@@ -125,7 +142,7 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
         }];
     }
     else{
-        // Facebook，Wechat登录
+        // Facebook，Wechat，Twitter登录
         [[UMSocialManager defaultManager] getUserInfoWithPlatform:platform currentViewController:weexInstance.viewController completion:^(id result, NSError *error) {
             if (error) {
                 WXLogError(@"%@",error);
@@ -151,7 +168,7 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
 
 /**
  *  logout 取消授权【登出】
- *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google"）
+ *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"）
  *  @param successCallback 成功回调
  *  @param failedCallback  失败回调
  */
@@ -175,7 +192,7 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
         }];
     }
     else{
-        // Facebook，Wechat登出
+        // Facebook，Wechat，Twitter登出
         [[UMSocialManager defaultManager] cancelAuthWithPlatform:platform completion:^(id result, NSError *error) {
             if (error) {
                 WXLogError(@"%@",error);
@@ -216,13 +233,14 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
  path: '',                 // 分享小程序用到的页面路径
  userName: ''              // 小程序名称
  shareType: 'Webpage',     // 分享的类型：网页链接  （BMShareType 对应描述）
- platform: 'WechatSession' // 分享平台：朋友圈/好友 （BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google"）
+ platform: 'WechatSession' // 分享平台：朋友圈/好友 （BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"）
  }
  *  @param successCallback 成功回调
  *  @param failedCallback  失败回调
  *  支持类型：
- Wechat  ：[@"纯文本", @"图片", @"图文", @"音乐链接", @"视频", @"网页链接", @"微信小程序"]
- FaceBook：[@"图片", @"图文", @"本地视频", @"网页链接"]
+ Wechat  ：[@"纯文本", @"图片", @"图文",    @"音乐链接", @"视频", @"网页链接", @"微信小程序"]
+ FaceBook：[@"图片",   @"图文", @"本地视频", @"网页链接"]
+ Twitter ：[@"纯文本", @"图片", @"图文",    @"音乐链接", @"视频", @"网页链接"]
  */
 - (void)shareWithInfo:(NSDictionary *)info successCallback:(WXModuleCallback)successCallback failedCallback:(WXModuleCallback)failedCallback
 {
@@ -252,6 +270,11 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
     else if (model.platform == BMSharePlatformType_FaceBook)
     {
         platformType = UMSocialPlatformType_Facebook;
+    }
+    //Twitter
+    else if (model.platform == BMSharePlatformType_Twitter)
+    {
+        platformType = UMSocialPlatformType_Twitter;
     }
     
     // 判断当前平是否支持分享
@@ -358,8 +381,8 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
 
 
 /**
- *  refreshToken 刷新登录token
- *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google"）
+ *  refreshToken 刷新登录token （暂时只支持Google）
+ *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"）
  *  @param successCallback 成功回调
  *  @param failedCallback  失败回调
  */
@@ -389,7 +412,7 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
 
 #pragma mark private
 
-/** 初始化平台方法：[支持WechatSession,Facebook]  */
+/** 初始化平台方法：[支持WechatSession,Facebook,Twitter]  */
 - (void)initPlatformWithPlaform:(UMSocialPlatformType)plaform appKey:(NSString *)appKey appSecret:(NSString *)appSecret redirectURL:(NSString *)redirectURL{
     
     if ([redirectURL isEqualToString:@""]) {
@@ -420,6 +443,9 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
         case UMSocialPlatformType_GooglePlus:     // Google
             name = K_SharePlatformGoogle;
             break;
+        case UMSocialPlatformType_Twitter:        // Twitter
+            name = K_SharePlatformTwitter;
+            break;
         default:
             break;
     }
@@ -446,6 +472,10 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
     else if ([key isEqualToString:K_SharePlatformGoogle])
     {
         platform = UMSocialPlatformType_GooglePlus;
+    }
+    else if ([key isEqualToString:K_SharePlatformTwitter])
+    {
+        platform = UMSocialPlatformType_Twitter;
     }
     return platform;
 }
