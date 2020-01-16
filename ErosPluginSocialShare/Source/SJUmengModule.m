@@ -13,6 +13,7 @@
 #import "YYModel.h"
 #import "SJShareModel.h"
 #import "SJGoogleSocialManager.h"
+#import "SJMicrosoftSocialManager.h"
 
 WX_PlUGIN_EXPORT_MODULE(SJSocialShare, SJUmengModule)
 
@@ -29,6 +30,8 @@ WX_EXPORT_METHOD_SYNC(@selector(initWechat:))                                   
 WX_EXPORT_METHOD_SYNC(@selector(initFacebook:))                                            // 初始化Facebook平台方法
 WX_EXPORT_METHOD_SYNC(@selector(initTwitter:))                                             // 初始化Twitter平台方法
 WX_EXPORT_METHOD_SYNC(@selector(initGoogle:))                                              // 初始化Google平台方法
+WX_EXPORT_METHOD_SYNC(@selector(initMicrosoft:))                                           // 初始化Microsoft平台方法
+
 WX_EXPORT_METHOD(@selector(loginWithPlatformType:successCallback:failedCallback:))         // 第三方授权【登录】方法
 WX_EXPORT_METHOD(@selector(logoutWithPlatformType:successCallback:failedCallback:))        // 取消授权【登出】方法
 WX_EXPORT_METHOD(@selector(shareWithInfo:successCallback:failedCallback:))                 // 分享方法
@@ -107,12 +110,21 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
     [[SJGoogleSocialManager sharedInstance] setGooglePlaformWithClientID:clientID ? clientID:@""];
 }
 
+/**
+ *  login 初始化第三方平台: Microsoft 【单独集成】
+ *  @param clientID  服务器ID
+ */
+- (void)initMicrosoft:(NSString *)clientID
+{
+    [[SJMicrosoftSocialManager sharedInstance] setMicrosoftPlaformWithClientID:clientID ? clientID:@""];
+}
+
 
 #pragma mark login/logout
 
 /**
  *  login 第三方授权【登录】
- *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"）
+ *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter", @"Microsoft"）
  *  @param successCallback 成功回调
  *  @param failedCallback  失败回调
  */
@@ -138,6 +150,18 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
         } failedCallback:^(id result) {
             if (failedCallback) {
                 failedCallback(result);
+            }
+        }];
+    }
+    else if (platform == UMSocialPlatformType_UserDefine_Microsoft) {
+        // Microsoft登录
+        [[SJMicrosoftSocialManager sharedInstance] loginFromMicrosoftWithSuccessCallback:^(id result) {
+            if (successCallback) {
+                successCallback(result);
+            }
+        } failedCallback:^(id result) {
+            if (successCallback) {
+                successCallback(result);
             }
         }];
     }
@@ -168,7 +192,7 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
 
 /**
  *  logout 取消授权【登出】
- *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"）
+ *  @param platformType    平台类型 （传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter", @"Microsoft"）
  *  @param successCallback 成功回调
  *  @param failedCallback  失败回调
  */
@@ -188,6 +212,18 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
         } failedCallback:^(id result) {
             if (failedCallback) {
                 failedCallback(result);
+            }
+        }];
+    }
+    else if (platform == UMSocialPlatformType_UserDefine_Microsoft) {
+        // Microsoft登出
+        [[SJMicrosoftSocialManager sharedInstance] logoutFromMicrosoftWithSuccessCallback:^(id result) {
+            if (successCallback) {
+                successCallback(result);
+            }
+        } failedCallback:^(id result) {
+            if (successCallback) {
+                successCallback(result);
             }
         }];
     }
@@ -222,7 +258,7 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
 #pragma mark Share 分享
 
 /**
- *  各平台分享：【不支持Google分享】
+ *  各平台分享：【不支持Google, Microsoft分享】
  *  @param info  分享信息字典[键值]
  {
  title:'',                 // 分享的标题
@@ -433,18 +469,21 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
 {
     NSString *name = @"";
     switch (platform) {
-        case UMSocialPlatformType_WechatSession:{  // 微信聊天
+        case UMSocialPlatformType_WechatSession:{        // 微信聊天
             name = @"Wechat";
             break;
         }
-        case UMSocialPlatformType_Facebook:       // Facebook
+        case UMSocialPlatformType_Facebook:              // Facebook
             name = K_SharePlatformFacebook;
             break;
-        case UMSocialPlatformType_GooglePlus:     // Google
+        case UMSocialPlatformType_GooglePlus:            // Google
             name = K_SharePlatformGoogle;
             break;
-        case UMSocialPlatformType_Twitter:        // Twitter
+        case UMSocialPlatformType_Twitter:               // Twitter
             name = K_SharePlatformTwitter;
+            break;
+        case UMSocialPlatformType_UserDefine_Microsoft:  // Microsoft
+            name = K_SharePlatformMicrosoft;
             break;
         default:
             break;
@@ -476,6 +515,10 @@ WX_EXPORT_METHOD(@selector(refreshTokenWithPlatformType:successCallback:failedCa
     else if ([key isEqualToString:K_SharePlatformTwitter])
     {
         platform = UMSocialPlatformType_Twitter;
+    }
+    else if ([key isEqualToString:K_SharePlatformMicrosoft])
+    {
+        platform = UMSocialPlatformType_UserDefine_Microsoft;
     }
     return platform;
 }

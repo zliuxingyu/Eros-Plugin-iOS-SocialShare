@@ -189,6 +189,9 @@ PODS:
   - FSCalendar (2.7.8)
   - Masonry (1.1.0)
   - MJRefresh (3.1.12)
+  - MSAL (1.0.6):
+    - MSAL/app-lib (= 1.0.6)
+  - MSAL/app-lib (1.0.6)
   - Realm (3.1.0):
     - Realm/Headers (= 3.1.0)
   - Realm/Headers (3.1.0)
@@ -226,6 +229,7 @@ PODS:
 
 DEPENDENCIES:
   - ErosPluginBaseLibrary (from `https://github.com/mayuanyang/eros-plugin-ios-baseLibrary.git`)
+  - MSAL
   - UMCCommon
   - UMCShare/Social/Facebook
   - UMCShare/Social/GooglePlus
@@ -235,13 +239,14 @@ DEPENDENCIES:
   - WXDevtool (from `https://github.com/bmfe/weex-devtool-iOS.git`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AFNetworking
     - BindingX
     - CTMediator
     - FSCalendar
     - Masonry
     - MJRefresh
+    - MSAL
     - Realm
     - SDWebImage
     - SocketRocket
@@ -281,6 +286,7 @@ SPEC CHECKSUMS:
   FSCalendar: 09369a2bf554ba71cd8e8cfb627e2df22a2c2af4
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MSAL: 186dc0ddb3467340a801ba5d036ea469470d207f
   Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
@@ -295,6 +301,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: fb11ad68b7bfed88c60f126d3bb0d60de69c3eea
+PODFILE CHECKSUM: d1340dd466dfb6038d60edb3f2776930fff1d05b
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
