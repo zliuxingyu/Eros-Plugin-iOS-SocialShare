@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '8.0'
+platform :ios, '10.0' 
 
 #忽略引入库的警告
 inhibit_all_warnings!
@@ -32,8 +32,12 @@ def common
     # 4.集成Twitter
     pod 'UMCShare/Social/Twitter'
     
-    # 5. google+登陆(导入不成功,手动导入)
-    #pod 'GoogleSignIns' 
+    # 5.google+登陆(导入不成功,手动导入)
+    #pod 'GoogleSignIns'
+    
+    # 6.Microsof 微软登陆
+    pod 'MSAL'
+    
 end
 
 target 'ErosPluginSocialShare' do

@@ -33,6 +33,10 @@
     {
         _platform = BMSharePlatformType_Twitter;
     }
+    else if ([platform isEqualToString:K_SharePlatformMicrosoft])
+    {
+        _platform = BMSharePlatformType_Microsoft;
+    }
     
     NSString *type = dic[@"shareType"];
     if ([type isEqualToString:K_ShareTypeText]) {

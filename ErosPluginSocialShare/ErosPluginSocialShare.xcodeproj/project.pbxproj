@@ -19,6 +19,7 @@
 		A337B29822A1FBD00006E29B /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A337B29722A1FBD00006E29B /* SafariServices.framework */; };
 		A337B29A22A1FBD90006E29B /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A337B29922A1FBD90006E29B /* LocalAuthentication.framework */; };
 		A342343C22D3093A007130DA /* SJGoogleSocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A342343B22D3093A007130DA /* SJGoogleSocialManager.m */; };
+		A34563F123CFE6C900C5D24A /* SJMicrosoftSocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A34563F023CFE6C900C5D24A /* SJMicrosoftSocialManager.m */; };
 		A3689FFB22A12E0100482A29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3689FFA22A12E0100482A29 /* AppDelegate.m */; };
 		A3689FFE22A12E0100482A29 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3689FFD22A12E0100482A29 /* ViewController.m */; };
 		A368A00122A12E0100482A29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3689FFF22A12E0100482A29 /* Main.storyboard */; };
@@ -64,6 +65,8 @@
 		A337B29922A1FBD90006E29B /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		A342343A22D3093A007130DA /* SJGoogleSocialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJGoogleSocialManager.h; sourceTree = "<group>"; };
 		A342343B22D3093A007130DA /* SJGoogleSocialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJGoogleSocialManager.m; sourceTree = "<group>"; };
+		A34563EF23CFE6C900C5D24A /* SJMicrosoftSocialManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SJMicrosoftSocialManager.h; sourceTree = "<group>"; };
+		A34563F023CFE6C900C5D24A /* SJMicrosoftSocialManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SJMicrosoftSocialManager.m; sourceTree = "<group>"; };
 		A3689FF622A12E0100482A29 /* ErosPluginSocialShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ErosPluginSocialShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3689FF922A12E0100482A29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A3689FFA22A12E0100482A29 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				A342343B22D3093A007130DA /* SJGoogleSocialManager.m */,
 				A337B28B22A1FA070006E29B /* SJShareModel.h */,
 				A337B28C22A1FA070006E29B /* SJShareModel.m */,
+				A34563EF23CFE6C900C5D24A /* SJMicrosoftSocialManager.h */,
+				A34563F023CFE6C900C5D24A /* SJMicrosoftSocialManager.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 				A337B28D22A1FA070006E29B /* SJShareModel.m in Sources */,
 				A3689FFE22A12E0100482A29 /* ViewController.m in Sources */,
 				A368A00922A12E0300482A29 /* main.m in Sources */,
+				A34563F123CFE6C900C5D24A /* SJMicrosoftSocialManager.m in Sources */,
 				A3689FFB22A12E0100482A29 /* AppDelegate.m in Sources */,
 				A342343C22D3093A007130DA /* SJGoogleSocialManager.m in Sources */,
 				A337B28A22A1F99D0006E29B /* SJUmengModule.m in Sources */,

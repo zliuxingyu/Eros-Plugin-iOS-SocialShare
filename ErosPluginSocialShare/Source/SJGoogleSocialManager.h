@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 单例
 + (SJGoogleSocialManager *)sharedInstance;
 
-// 初始化gGoogle平台
+// 初始化Google平台
 - (void)setGooglePlaformWithClientID:(NSString *)clientID;
 
 // Google登录结果
