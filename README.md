@@ -179,13 +179,15 @@ function(resData){
 })
 ```
 ## Change Log
-**iOS 1.3.4** <br>
+**iOS 1.3.5** <br>
 [最新版]
+1. podspec文件优化配置。
+
+**iOS 1.3.4** <br>
 1. 集成Microsoft第三方登录登出。
 
 
 **iOS 1.3.3** <br>
-[最新版]
 1. 集成基于友盟的Twitter第三方登录及分享。
 
 

@@ -10,8 +10,8 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "ErosPluginSocialShare"
-  spec.version      = "1.3.4"
-  spec.summary      = "ErosPluginSocialShare Source ."
+  spec.version      = "1.3.5"
+  spec.summary      = "ErosPluginSocialShare Source."
 
 
   spec.description  = <<-DESC
@@ -61,12 +61,12 @@ Pod::Spec.new do |spec|
   # spec.resources = "Resources/*.png"
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-  spec.resource = 'ErosPluginSocialShare/GoogleFramworks/GoogleSignIn.bundle'
+  spec.resources = "ErosPluginSocialShare/GoogleFramworks/GoogleSignIn.bundle"
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   
   spec.frameworks = "LocalAuthentication", "SafariServices", "SystemConfiguration"
-  spec.vendored_frameworks = 'ErosPluginSocialShare/GoogleFramworks/GoogleSignInDependencies.framework', 'ErosPluginSocialShare/GoogleFramworks/GoogleSignIn.framework'
+  spec.vendored_frameworks = "ErosPluginSocialShare/GoogleFramworks/GoogleSignInDependencies.framework", "ErosPluginSocialShare/GoogleFramworks/GoogleSignIn.framework"
 
 
   # spec.framework  = "SomeFramework"
