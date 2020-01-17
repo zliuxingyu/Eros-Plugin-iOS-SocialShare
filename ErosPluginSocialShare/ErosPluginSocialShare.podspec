@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "ErosPluginSocialShare"
-  spec.version      = "1.3.3"
+  spec.version      = "1.3.4"
   spec.summary      = "ErosPluginSocialShare Source ."
 
 
@@ -36,7 +36,7 @@ Pod::Spec.new do |spec|
 
 
   spec.platform     = :ios
-  spec.ios.deployment_target = '8.0'
+  spec.ios.deployment_target = '10.0'
 
   # spec.platform     = :ios, "8.0"
   #  When using multiple platforms
@@ -83,7 +83,7 @@ Pod::Spec.new do |spec|
   spec.dependency 'UMCShare/Social/Facebook'
   spec.dependency 'UMCShare/Social/Twitter'
   spec.dependency 'YYModel'	
-  spec.dependency 'WeexSDK' 
+  # spec.dependency 'WeexSDK' 
   spec.dependency 'WeexPluginLoader' 
-
+  spec.dependency 'MSAL' 
 end

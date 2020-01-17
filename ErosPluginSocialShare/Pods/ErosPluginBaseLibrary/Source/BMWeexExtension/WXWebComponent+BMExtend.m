@@ -4,7 +4,7 @@
 //
 //  Created by XHY on 2017/5/5.
 //
-//
+//  UIWebView替换为WKWebViewt
 
 #import "WXWebComponent+BMExtend.h"
 #import <WeexSDK/WXUtility.h>
@@ -20,9 +20,25 @@
 
 @implementation WXWebComponent (BMExtend)
 
-- (void)bm_webViewDidFinishLoad:(UIWebView *)webView
+//- (void)bm_webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    [self bm_webViewDidFinishLoad:webView];
+//
+//    CGFloat contentHeight = webView.scrollView.contentSize.height;
+//
+//    CGFloat pixelScale = [WXUtility defaultPixelScaleFactor];
+//
+//    contentHeight = contentHeight/(pixelScale*2);
+//
+//    [self fireEvent:@"bmPageFinish" params:@{@"contentHeight": @(contentHeight)}];
+//
+//    [self runSetOptionsScript];
+//}
+
+- (void)bm_webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
-    [self bm_webViewDidFinishLoad:webView];
+    
+    [self bm_webView:webView didFinishNavigation:navigation];
     
     CGFloat contentHeight = webView.scrollView.contentSize.height;
     
@@ -34,21 +50,23 @@
     
     [self runSetOptionsScript];
 }
+
 - (void)bm_viewDidLoad
 {
     [self bm_viewDidLoad];
-    UIWebView * webview = (UIWebView *)self.view;
+    // UIWebView * webview = (UIWebView *)self.view;
+    WKWebView * webview = (WKWebView *)self.view;
     webview.opaque = NO;
     webview.backgroundColor = [UIColor clearColor];
     
-    JSContext *jsContext = [self valueForKey:@"jsContext"];
-    BMNative *bmnative = [[BMNative alloc] init];
-    jsContext[@"bmnative"] = bmnative;
+//    JSContext *jsContext = [self valueForKey:@"jsContext"];
+//    BMNative *bmnative = [[BMNative alloc] init];
+//    jsContext[@"bmnative"] = bmnative;
     
     if (self.attributes[@"scrollEnabled"] && NO == [self.attributes[@"scrollEnabled"] boolValue]) {
         webview.scrollView.scrollEnabled = NO;
     }
-    jsContext[@"mapData"] = self.attributes[@"mapData"];
+//    jsContext[@"mapData"] = self.attributes[@"mapData"];
 }
 
 /** 修复如果url为 NSNull、或者nil的时候 崩溃的问题 weex没有做判断 */
@@ -67,8 +85,9 @@
 -(void)bm_loadURL:(NSString *)url
 {
     WXPerformBlockOnMainThread(^{
-        UIWebView * webview = (UIWebView *)self.view;
-        
+        // UIWebView * webview = (UIWebView *)self.view;
+        WKWebView * webview = (WKWebView *)self.view;
+
         if(webview){
             NSURL *urlPath = [NSURL URLWithString:url];
             if([urlPath.scheme isEqualToString:BM_LOCAL]){
@@ -89,8 +108,16 @@
 - (void)runSetOptionsScript
 {
     NSString *script = [NSString stringWithFormat:@"setOptions(%@)",self.attributes[@"mapData"]];
-    UIWebView * webView = (UIWebView *)self.view;
-    [webView stringByEvaluatingJavaScriptFromString:script];
+//    UIWebView * webView = (UIWebView *)self.view;
+//    [webView stringByEvaluatingJavaScriptFromString:script];
+    
+    // 替换WKWebView
+    WKWebView *webView = (WKWebView *)self.view;
+    [webView evaluateJavaScript:script completionHandler:^(id _Nullable dict, NSError * _Nullable error) {
+         if (error) {
+             WXLogError(@"Run script:%@ Error:%@",script,error);
+         }
+    }];
 }
 
 - (void)_updateAttributesOnComponentThread:(NSDictionary *)attributes

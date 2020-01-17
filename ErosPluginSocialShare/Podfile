@@ -6,15 +6,18 @@ inhibit_all_warnings!
 
 def common
     #WeexSDK
-    pod 'WeexSDK', :git => 'https://github.com/bmfe/incubator-weex.git'
+    #pod 'WeexSDK', :git => 'https://github.com/bmfe/incubator-weex.git'
+    pod 'WeexSDK', :git => 'https://gitlab.sjfood.us/Eddy.M/incubator-weex.git'
 
     #Weex debugger 调试工具，只在开发模式集成
-    pod 'WXDevtool', :git => 'https://github.com/bmfe/weex-devtool-iOS.git', :configurations => ['Debug']
-    
+    #pod 'WXDevtool', :git => 'https://github.com/bmfe/weex-devtool-iOS.git', :configurations => ['Debug']
+    pod 'WXDevtool', :git => 'https://gitlab.sjfood.us/Eddy.M/weex-devtool-iOS.git', :configurations => ['Debug']
+
     #Eros iOS 基础库 1.3.5
     #pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.6'
-    pod 'ErosPluginBaseLibrary', :git => 'https://github.com/mayuanyang/eros-plugin-ios-baseLibrary.git'
-
+    #pod 'ErosPluginBaseLibrary', :git => 'https://github.com/mayuanyang/eros-plugin-ios-baseLibrary.git'
+    pod 'ErosPluginBaseLibrary', :git => 'https://gitlab.sjfood.us/Eddy.M/eros-plugin-ios-baseLibrary.git'
+    
     # 友盟+ 基础依赖库
     pod 'UMCCommon'
     # 安全组件 可选
@@ -35,7 +38,7 @@ def common
     # 5.google+登陆(导入不成功,手动导入)
     #pod 'GoogleSignIns'
     
-    # 6.Microsof 微软登陆
+    # 6.Microsoft 微软登陆
     pod 'MSAL'
     
 end
