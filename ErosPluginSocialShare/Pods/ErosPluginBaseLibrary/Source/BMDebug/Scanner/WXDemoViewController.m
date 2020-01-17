@@ -29,7 +29,7 @@
 #import "WXMonitor.h"
 #import "WXTracingManager.h"
 
-@interface WXDemoViewController () <UIScrollViewDelegate, UIWebViewDelegate>
+@interface WXDemoViewController () <UIScrollViewDelegate> // UIWebViewDelegate
 @property (nonatomic, strong) WXSDKInstance *instance;
 @property (nonatomic, strong) UIView *weexView;
 

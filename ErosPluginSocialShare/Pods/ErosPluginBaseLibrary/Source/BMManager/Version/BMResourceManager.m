@@ -239,7 +239,7 @@ typedef NS_ENUM(NSUInteger, BMResourceCheckUpdateCode) {
         WXLogInfo(@"\n 下载进度>>>> 文件总大小：%lld 已下载：%lld",progress.totalUnitCount,progress.completedUnitCount);
         
 #ifdef DEBUG
-        [SVProgressHUD showProgress:((float)progress.completedUnitCount / (float)progress.totalUnitCount) status:@"js资源文件更新中..."];
+        [SVProgressHUD showProgress:((float)progress.completedUnitCount / (float)progress.totalUnitCount) status:@"Updating..."];
 #endif
         
     };
@@ -311,7 +311,7 @@ typedef NS_ENUM(NSUInteger, BMResourceCheckUpdateCode) {
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         
         if (weakSelf.newJsBundleResPreparedBlock) {
-            weakSelf.newJsBundleResPreparedBlock(NO, @"资源下载失败");
+            weakSelf.newJsBundleResPreparedBlock(NO, @"Failed downloading update");
         }
         
         WXLogError(@"%@ Request_URL>>>>>>>>>>>>>>>>:%@",NSStringFromClass([request class]),request.requestTask.originalRequest);
@@ -327,7 +327,7 @@ typedef NS_ENUM(NSUInteger, BMResourceCheckUpdateCode) {
             //如果diff 包下载失败 再次查询全量包 下载
             [weakSelf checkNewVersion:NO];
             if (weakSelf.newJsBundleResPreparedBlock) {
-                weakSelf.newJsBundleResPreparedBlock(NO, @"差分包下载失败，已请求全量包");
+                weakSelf.newJsBundleResPreparedBlock(NO, @"Failed downloading diff package, full package downloaded");
             }
         }
     }];
@@ -361,7 +361,7 @@ typedef NS_ENUM(NSUInteger, BMResourceCheckUpdateCode) {
                     
                     if (self.newJsBundleResPreparedBlock) {
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            self.newJsBundleResPreparedBlock(YES,@"更新资源准备就绪");
+                            self.newJsBundleResPreparedBlock(YES,@"Update is ready");
                         });
                     }
                     
@@ -378,7 +378,7 @@ typedef NS_ENUM(NSUInteger, BMResourceCheckUpdateCode) {
 #endif
         
         if (self.newJsBundleResPreparedBlock) {
-            self.newJsBundleResPreparedBlock(NO,@"资源校验失败，请检查更新包");
+            self.newJsBundleResPreparedBlock(NO,@"Failed validating the package, please check it");
         }
         
         //校验失败  删除下载的全量包或者patch出的全量包

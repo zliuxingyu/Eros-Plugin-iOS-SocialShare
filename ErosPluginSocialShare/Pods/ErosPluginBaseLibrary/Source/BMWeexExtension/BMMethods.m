@@ -144,7 +144,9 @@
 + (void)exchangeWXWebComponent
 {
     /* 替换 WXBridgeManager 的fire方法 */
-    [self bm_swizzle:[WXWebComponent class] Method:@selector(webViewDidFinishLoad:) withMethod:@selector(bm_webViewDidFinishLoad:)];
+    // [self bm_swizzle:[WXWebComponent class] Method:@selector(webViewDidFinishLoad:) withMethod:@selector(bm_webViewDidFinishLoad:)];
+    
+    [self bm_swizzle:[WXWebComponent class] Method:@selector(webView:didFinishNavigation:) withMethod:@selector(bm_webView:didFinishNavigation:)];
     
     /* 替换 WXWebComponent 的viewDidLoad方法 */
     [self bm_swizzle:[WXWebComponent class] Method:@selector(viewDidLoad) withMethod:@selector(bm_viewDidLoad)];

@@ -56,11 +56,11 @@
         
         NSString *errmsg = [errorCode integerValue] >= -1 ? [NSString getStatusText:[errorCode integerValue]] : request.error.localizedDescription ?: [NSString getStatusText:[errorCode integerValue]];
         NSString *msg = [NSString stringWithFormat:@"%@(Code:%@)",errmsg,errorCode];
-        
+        id data = request.responseObject ?: @{};
         NSDictionary *resData = @{
                                   @"status": errorCode,
                                   @"errorMsg": msg,
-                                  @"data": @{}
+                                  @"data": data
                                   };
         
         if (resultBlock) {

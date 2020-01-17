@@ -8,6 +8,7 @@
 
 #import "WXWebViewModule+Private.h"
 #import <objc/runtime.h>
+#import <WebKit/WebKit.h>
 
 const char * webViewKey = "webview";
 
@@ -25,15 +26,29 @@ WX_EXPORT_METHOD(@selector(evaluateScriptEleRef:jsCode:callback:))
         NSString *webViewPName = [[NSString alloc] initWithCString:property_getName(webViewProperty) encoding:NSUTF8StringEncoding];
         
         id webViewValue = [webCoponent valueForKey:webViewPName];
-        if ([webViewValue isKindOfClass:[UIWebView class]]) {
-            NSString * callbackString = [(UIWebView*)webViewValue stringByEvaluatingJavaScriptFromString:jsCode];
-            if (callbackString) {
-                if (callback) {
-                    callback(callbackString);
-                }
-            }
+        if ([webViewValue isKindOfClass:[WKWebView class]]) { // UIWebView
+            
+//            NSString * callbackString = [(UIWebView*)webViewValue stringByEvaluatingJavaScriptFromString:jsCode];
+//            if (callbackString) {
+//               if (callback) {
+//                   callback(callbackString);
+//               }
+//            }
+            WKWebView *webView = (WKWebView *)webViewValue;
+            [webView evaluateJavaScript:jsCode completionHandler:^(id _Nullable dict, NSError * _Nullable error) {
+                 if (error) {
+                     WXLogError(@"Run script:%@ Error:%@",jsCode,error);
+                 }
+                 else{
+                     NSString *callbackString = dict;
+                     if (callbackString) {
+                         if (callback) {
+                             callback(callbackString);
+                         }
+                     }
+                 }
+            }];
         }
-    
     }];
 }
 

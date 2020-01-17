@@ -274,11 +274,11 @@
 {
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"更新提示" message:@"更新数据已准备就绪，完成更新获得完整功能体验。" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"Update available" message:@"Update is ready, update to the latest and greatest version" preferredStyle:UIAlertControllerStyleAlert];
         
 //        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"稍后升级" style:UIAlertActionStyleDefault handler:nil];
         
-        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"立即更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Update now" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //            [[BMResourceManager sharedInstance] compareVersion];
             [[NSNotificationCenter defaultCenter] postNotificationName:K_BMAppReStartNotification object:nil];
         }];

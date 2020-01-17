@@ -2,13 +2,15 @@
 
 > 功能简介：
 1. 基于友盟ShareSDK实现：微信分享（分享到朋友圈，微信好友），微信授权登录登出，Twitter，Facebook分享和授权登录登出；
-2. 基于Google官方的授权登录登出及刷新Token方法。 
+2. 基于Google官方的授权登录登出及刷新Token方法;
+2. 基于Microsoft官方的授权登录登出。 
 
 > 在使用登录分享之前，还需要一些配置 <br>
 1. 首先请到友盟平台注册App获取AppKey; <br>
 2. iOS平台请参考友盟的[教程](https://developer.umeng.com/docs/66632/detail/66825)配置SSO白名单、及 URL Scheme等；<br>
 3. Google登录集成请参考[教程](https://developers.google.com/identity/sign-in/ios/start-integrating)、[流程](https://www.jianshu.com/p/3251468ba0a1)；<br>
-4. 分享的页面面板可根据产品定制样式自己写。
+4. Microsoft登录集成请参考[教程](https://docs.microsoft.com/zh-cn/azure/active-directory/develop/quickstart-v2-ios#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)；<br>
+5. 分享的页面面板可根据产品定制样式自己写。
 
 
 ## 集成方式
@@ -92,6 +94,15 @@ socialShare.initGoogle('Google平台申请的clientID')
 ```
 
 
+* 初始化Microsoft SDK `initMicrosoft('clientID')`
+
+> 在使用Microsoft登录功能前，需要调用此方法来初始化Microsoft平台；
+
+```js
+socialShare.initMicrosoft('Microsoft平台申请的clientID')
+```
+
+
 * 分享：`shareWithInfo(info,successCallback,failedCallback)`
 
 ```js
@@ -116,7 +127,8 @@ WechatSession,              // 分享至微信好友及微信登录，支持分�
 WechatTimeLine,             // 分享至朋友圈，支持分享类型同上
 Facebook,                   // 分享至Facebook及授权登录，支持分享类型：[@"图片", @"图文", @"本地视频", @"网页链接"]
 Google,                     // Google授权登录 暂不支持分享
-Twitter                     // 分享至Twitter及授权登录，支持分享类型：[@"文字", @"图片", @"图文", @"音乐链接", @"视频", @"网页链接"]    
+Twitter,                    // 分享至Twitter及授权登录，支持分享类型：[@"文字", @"图片", @"图文", @"音乐链接", @"视频", @"网页链接"]   
+Microsoft                   // Microsoft授权登录 暂不支持分享
 ]
 
 // 分享类型
@@ -135,7 +147,7 @@ MiniProgram // 小程序
 
 ```js
 socialShare.loginWithPlatformType(
-'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"
+'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter", @"Microsoft"
 function(resData){     
 // 成功回调
 },function(resData){
@@ -147,7 +159,7 @@ function(resData){
 
 ```js
 socialShare.logoutWithPlatformType(
-'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter"
+'平台类型',  // BMSharePlatformType对应描述，传字符串：@"WechatSession", @"Facebook", @"Google", @"Twitter", @"Microsoft"
 function(resData){     
 // 成功回调
 },function(resData){
@@ -167,6 +179,10 @@ function(resData){
 })
 ```
 ## Change Log
+**iOS 1.3.4** <br>
+[最新版]
+1. 集成Microsoft第三方登录登出。
+
 
 **iOS 1.3.3** <br>
 [最新版]
