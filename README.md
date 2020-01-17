@@ -179,7 +179,7 @@ function(resData){
 })
 ```
 ## Change Log
-**iOS 1.3.5** <br>
+**iOS 1.3.6** <br>
 [最新版]
 1. podspec文件优化配置。
 
