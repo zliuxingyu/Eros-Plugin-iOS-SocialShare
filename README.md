@@ -179,8 +179,11 @@ function(resData){
 })
 ```
 ## Change Log
-**iOS 1.3.6** <br>
+**iOS 1.3.7** <br>
 [最新版]
+1. 微信sdk替换升级为完整版。
+
+**iOS 1.3.6** <br>
 1. podspec文件优化配置。
 
 **iOS 1.3.4** <br>
