@@ -79,7 +79,8 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
-  spec.dependency 'UMCShare/Social/ReducedWeChat'
+  # spec.dependency 'UMCShare/Social/ReducedWeChat' #精简版
+  spec.dependency 'UMCShare/Social/WeChat'          #完整版
   spec.dependency 'UMCShare/Social/Facebook'
   spec.dependency 'UMCShare/Social/Twitter'
   spec.dependency 'YYModel'	
