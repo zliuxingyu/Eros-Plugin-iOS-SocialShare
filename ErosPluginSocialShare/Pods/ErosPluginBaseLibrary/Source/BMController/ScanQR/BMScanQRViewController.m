@@ -93,7 +93,7 @@ typedef NS_ENUM(NSInteger, AlertType) {
     [SVProgressHUD dismiss];
     
     JYTTitleLabel * label = [[JYTTitleLabel alloc] initWithFrame:CGRectMake(10, (self.view.height - self.showSize.height) / 2 - 60, K_SCREEN_WIDTH - 10 * 2, 60)];
-    label.text = @"将条码放入框内，即可自动扫描";
+    label.text = @"Put the QR code within the box";
     label.textColor = [UIColor whiteColor];
     label.textAlignment = 1;
     label.lineBreakMode = 0;
@@ -106,7 +106,7 @@ typedef NS_ENUM(NSInteger, AlertType) {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"扫一扫";
+    self.navigationItem.title = @"Scan QR Code";
     self.navigationController.fd_prefersNavigationBarHidden = NO;
     self.view.backgroundColor = [UIColor blackColor];
     
@@ -114,9 +114,9 @@ typedef NS_ENUM(NSInteger, AlertType) {
     AVAuthorizationStatus authStatus= [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusDenied) {
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"无法使用相机" message:@"请在iPhone的""设置-隐私-相机""中允许访问相机" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Can't use camera" message:@"Please allow camera access from the settings page" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
@@ -134,7 +134,7 @@ typedef NS_ENUM(NSInteger, AlertType) {
     }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [SVProgressHUD showWithStatus:@"扫描器初始化中..."];
+        [SVProgressHUD showWithStatus:@"Scanner is initializing"];
     });
 }
 

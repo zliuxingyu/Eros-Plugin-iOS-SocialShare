@@ -1,5 +1,5 @@
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/UMCShare
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/UMCCommon" "${PODS_ROOT}/UMCShare/UMShare" "${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Facebook"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/UMCCommon/UMCommon_7.2.2" "${PODS_ROOT}/UMCShare/UMShare" "${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Facebook" "${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Twitter"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/UMCShare" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/UMCShare"
 PODS_BUILD_DIR = ${BUILD_DIR}

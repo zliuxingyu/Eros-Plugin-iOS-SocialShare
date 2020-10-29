@@ -29,6 +29,7 @@
 #import "BMCalendarComponent.h"
 #import "BMSpanComponent.h"
 #import "BMChartComponent.h"
+#import "BMQRCodeComponent.h"
 
 #import "BMRouterModule.h"
 #import "BMAxiosNetworkModule.h"
@@ -157,7 +158,8 @@
                                 @"bmrichtext":      NSStringFromClass([BMRichTextComponent class]),
                                 @"bmcalendar":      NSStringFromClass([BMCalendarComponent class]),
                                 @"bmspan":          NSStringFromClass([BMSpanComponent class]),
-                                @"bmchart":         NSStringFromClass([BMChartComponent class])
+                                @"bmchart":         NSStringFromClass([BMChartComponent class]),
+                                @"QR-code":         NSStringFromClass([BMQRCodeComponent class])
                                 };
     for (NSString *componentName in components) {
         [WXSDKEngine registerComponent:componentName withClass:NSClassFromString([components valueForKey:componentName])];

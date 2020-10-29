@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "ErosPluginSocialShare"
-  spec.version      = "1.3.7"
+  spec.version      = "1.3.8"
   spec.summary      = "ErosPluginSocialShare Source."
 
 

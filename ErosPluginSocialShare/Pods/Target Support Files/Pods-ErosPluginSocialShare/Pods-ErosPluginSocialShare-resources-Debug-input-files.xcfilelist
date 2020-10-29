@@ -10,6 +10,8 @@ ${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMWeexExtension/Resources/arrowInKeybo
 ${PODS_ROOT}/ErosPluginBaseLibrary/Source/BMWeexExtension/Resources/bm-base.js
 ${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
 ${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle
+${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Twitter/TwitterKitResources.bundle
+${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Twitter/TwitterShareExtensionUIResources.bundle
 ${PODS_ROOT}/WeexSDK/pre-build/native-bundle-main.js
 ${PODS_ROOT}/WeexSDK/pre-build/weex-main-jsfm.js
 ${PODS_ROOT}/WeexSDK/pre-build/weex-polyfill.js

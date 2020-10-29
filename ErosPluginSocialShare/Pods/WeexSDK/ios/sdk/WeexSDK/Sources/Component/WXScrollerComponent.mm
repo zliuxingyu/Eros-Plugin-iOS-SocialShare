@@ -775,6 +775,24 @@ WX_EXPORT_METHOD(@selector(resetLoadmore))
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
+    // 增加监听滚动停止事件 08.31.2020
+    if (_scrollEndEvent || _scrollEventListener) {
+        if (!_isScrolling) {
+            CGFloat scaleFactor = self.weexInstance.pixelScaleFactor;
+            NSDictionary *contentSizeData = @{@"width":@(scrollView.contentSize.width / scaleFactor),
+                                              @"height":@(scrollView.contentSize.height / scaleFactor)};
+            NSDictionary *contentOffsetData = @{@"x":@(-scrollView.contentOffset.x / scaleFactor),
+                                                @"y":@(-scrollView.contentOffset.y / scaleFactor)};
+            
+            if (_scrollEndEvent) {
+                [self fireEvent:@"scrollend" params:@{@"contentSize":contentSizeData, @"contentOffset":contentOffsetData} domChanges:nil];
+            }
+            if (_scrollEventListener) {
+                _scrollEventListener(self, @"scrollend", @{@"contentSize":contentSizeData, @"contentOffset":contentOffsetData});
+            }
+        }
+    }
+    
     UIEdgeInsets inset = [scrollView contentInset];
     
 //  currently only set contentInset when loading

@@ -181,9 +181,9 @@ PODS:
   - FSCalendar (2.7.8)
   - Masonry (1.1.0)
   - MJRefresh (3.1.12)
-  - MSAL (1.0.6):
-    - MSAL/app-lib (= 1.0.6)
-  - MSAL/app-lib (1.0.6)
+  - MSAL (1.1.7):
+    - MSAL/app-lib (= 1.1.7)
+  - MSAL/app-lib (1.1.7)
   - Realm (3.1.0):
     - Realm/Headers (= 3.1.0)
   - Realm/Headers (3.1.0)
@@ -193,21 +193,25 @@ PODS:
   - SocketRocket (0.4.2)
   - SSZipArchive (1.6.2)
   - TZImagePickerController (3.1.2)
-  - UMCCommon (2.1.1)
-  - UMCShare/Core (6.9.6):
+  - UMCCommon (7.2.2)
+  - UMCShare/Core (6.10.1):
     - UMCCommon
-  - UMCShare/Social/Facebook (6.9.6):
-    - UMCCommon
-    - UMCShare/Core
-  - UMCShare/Social/GooglePlus (6.9.6):
+  - UMCShare/Social/Facebook (6.10.1):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/ReducedWeChat (6.9.6):
+  - UMCShare/Social/GooglePlus (6.10.1):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/Twitter (6.9.6):
+  - UMCShare/Social/ReducedWeChat (6.10.1):
     - UMCCommon
     - UMCShare/Core
+  - UMCShare/Social/Twitter (6.10.1):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/WeChat (6.10.1):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedWeChat
   - WeexPluginLoader (0.0.1.9.1):
     - WeexSDK
   - WeexSDK (0.20.1)
@@ -225,8 +229,8 @@ DEPENDENCIES:
   - UMCCommon
   - UMCShare/Social/Facebook
   - UMCShare/Social/GooglePlus
-  - UMCShare/Social/ReducedWeChat
   - UMCShare/Social/Twitter
+  - UMCShare/Social/WeChat
   - WeexSDK (from `https://gitlab.sjfood.us/Eddy.M/incubator-weex.git`)
   - WXDevtool (from `https://gitlab.sjfood.us/Eddy.M/weex-devtool-iOS.git`)
 
@@ -261,10 +265,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ErosPluginBaseLibrary:
-    :commit: 8170fc22af1e28451024d76d653333370f44349d
+    :commit: 6f6478492ee13d0dcf0ca23d84af5aa654c87fd2
     :git: https://gitlab.sjfood.us/Eddy.M/eros-plugin-ios-baseLibrary.git
   WeexSDK:
-    :commit: 302d72e424ea28a2472320869662aed343a08d4b
+    :commit: d3ba6a2729213916d6c87f1953da10148df4a92d
     :git: https://gitlab.sjfood.us/Eddy.M/incubator-weex.git
   WXDevtool:
     :commit: 7c18ebf64372826f04b5afbe6d8559fe2cbaf28a
@@ -278,14 +282,14 @@ SPEC CHECKSUMS:
   FSCalendar: 09369a2bf554ba71cd8e8cfb627e2df22a2c2af4
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  MSAL: 186dc0ddb3467340a801ba5d036ea469470d207f
+  MSAL: 778e3fadb1d581d6afa05fbf4c657d1b1cf8810d
   Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SocketRocket: ffe08119b00ef982f6c37052a4705a057c8494ad
   SSZipArchive: 428eb1ac8d37dd133404d30f422b23958c1f9acc
   TZImagePickerController: 29b279caee3309cbaa04ef1384b036ec90297f3f
-  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
-  UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
+  UMCCommon: 15e5311b00c7ff6e6ffb1f5c965651373b6b2b3c
+  UMCShare: 0846449c689e8bf6793a941b97f51f9afff927ef
   WeexPluginLoader: 85c1304f8ba29864e58531614a0acfeceef1b85c
   WeexSDK: fa2027698f19dbccf74ed35ae2771598da138f2d
   WXDevtool: ae5197d92941fd5eeeccf607dc31ceb2c556605d
@@ -293,6 +297,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: dc6ded63c1e24d603c2805804290096bca8410a2
+PODFILE CHECKSUM: 505b072b341586d8a582bfa95cb6dff093a27935
 
 COCOAPODS: 1.8.4
